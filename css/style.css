@@ -342,6 +342,78 @@ header {
     background-color: #229954;
 }
 
+/* Contact Hero Section */
+.contact-hero {
+    background: linear-gradient(rgba(52, 152, 219, 0.8), rgba(44, 62, 80, 0.8)), url('../images/Essaouira-Harbor.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 6rem 5% 4rem;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-hero .hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-hero .hero-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Contact Details */
+.contact-details {
+    margin: 2rem 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: rgba(52, 152, 219, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid #3498db;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.contact-item h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.contact-item p {
+    color: #555;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Social Links */
+.social-links {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+.social-links h4 {
+    color: #3498db;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
 /* Social Media */
 .social-media {
     display: flex;
@@ -387,6 +459,102 @@ header {
 
 .social-link.whatsapp:hover {
     color: #25d366;
+}
+
+/* Location Section */
+.location-section {
+    padding: 5rem 5%;
+    background-color: #f8f9fa;
+}
+
+.location-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+.location-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.location-info h3 {
+    color: #3498db;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.location-features {
+    margin: 2rem 0;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    padding: 0.75rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.feature i {
+    color: #3498db;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.feature span {
+    color: #555;
+    font-weight: 500;
+}
+
+.map-container {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.map-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.map-container i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.map-container p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.map-container small {
+    opacity: 0.8;
+    position: relative;
+    z-index: 1;
 }
 
 /* Footer */
