@@ -851,4 +851,9 @@ footer {
         font-size: 0.9rem;
         line-height: 1.5;
     }
+
+    /* Fix contact section mobile layout */
+    .contact-section {
+        padding: 2rem 1rem;
+    }
 }
