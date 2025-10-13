@@ -546,17 +546,22 @@ footer {
 }
 
 .footer-section .social-media {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 1rem;
-    flex-wrap: wrap;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    gap: 1rem !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
 }
 
 .footer-section .social-link {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1.2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
 }
 
 .footer-section p {
