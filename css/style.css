@@ -545,6 +545,20 @@ footer {
     color: #3498db;
 }
 
+.footer-section .social-media {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-section .social-link {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+}
+
 .footer-section p {
     margin: 0.5rem 0;
     font-size: 0.9rem;
