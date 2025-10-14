@@ -24,6 +24,11 @@ window.saveToJSON = async function(formType, data) {
             console.log('No existing localStorage data');
         }
 
+        // Ensure existingData is an array
+        if (!Array.isArray(existingData)) {
+            existingData = [];
+        }
+
         existingData.push(entryData);
         localStorage.setItem(`${formType}_backup`, JSON.stringify(existingData));
 
@@ -33,8 +38,8 @@ window.saveToJSON = async function(formType, data) {
             if ('showSaveFilePicker' in window) {
                 console.log(`Attempting to update ${formType}.json file...`);
 
-                // Create properly formatted JSON data
-                const jsonData = JSON.stringify(existingData, null, 2);
+                // Create properly formatted JSON data as dictionary
+                const jsonData = JSON.stringify({ [formType]: existingData }, null, 2);
                 const blob = new Blob([jsonData], { type: 'application/json' });
 
                 // Prompt user to save/update the JSON file
