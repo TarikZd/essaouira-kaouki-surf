@@ -88,11 +88,16 @@ window.saveToJSON = async function(formType, data) {
         try {
             if ('showSaveFilePicker' in window) {
                 console.log(`Saving to ${formType}.json file...`);
+                console.log('updatedJsonData to save:', updatedJsonData);
 
                 const jsonString = JSON.stringify(updatedJsonData, null, 2);
+                console.log('JSON string to save:', jsonString);
+
                 const blob = new Blob([jsonString], { type: 'application/json' });
+                console.log('Blob created, size:', blob.size);
 
                 // Prompt user to save the JSON file
+                console.log('Prompting user to save file...');
                 const handle = await window.showSaveFilePicker({
                     suggestedName: `${formType}.json`,
                     types: [{
@@ -101,19 +106,27 @@ window.saveToJSON = async function(formType, data) {
                     }]
                 });
 
+                console.log('File handle obtained, creating writable...');
                 const writable = await handle.createWritable();
+                console.log('Writable created, writing data...');
+
                 await writable.write(blob);
+                console.log('Data written, closing file...');
+
                 await writable.close();
+                console.log('File closed successfully');
 
                 console.log(`✅ ${formType} data saved to JSON file:`, entryData);
                 return { success: true, data: entryData, fileSaved: true };
             } else {
-                console.log('File System Access API not supported');
+                console.log('❌ File System Access API not supported in this browser');
                 return { success: false, error: 'File System Access API not supported' };
             }
         } catch (fileError) {
-            console.log('File save cancelled or failed');
-            return { success: false, error: 'File save cancelled or failed' };
+            console.log('❌ File save error:', fileError);
+            console.log('Error name:', fileError.name);
+            console.log('Error message:', fileError.message);
+            return { success: false, error: `File save failed: ${fileError.message}` };
         }
 
     } catch (error) {
