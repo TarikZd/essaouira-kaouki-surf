@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Transfer form handling
     const transferForm = document.getElementById('transferForm');
     if (transferForm) {
-        transferForm.addEventListener('submit', function(e) {
+        transferForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             // Get form data
             const formData = new FormData(this);
             const transferData = {
@@ -74,13 +74,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 time: formData.get('transferTime'),
                 adults: formData.get('adults'),
                 kids: formData.get('kids'),
-                babies: formData.get('babies')
+                babies: formData.get('babies'),
+                created_at: new Date().toISOString()
             };
 
             // Validate form data
             if (validateTransferForm(transferData)) {
-                // Simulate booking submission
-                submitBooking('transfer', transferData);
+                try {
+                    // Save to Supabase
+                    const { data, error } = await window.supabaseClient
+                        .from('transfers')
+                        .insert([transferData]);
+
+                    if (error) {
+                        console.error('Error saving transfer:', error);
+                        showMessage('Error saving booking. Please try again.', 'error');
+                        return;
+                    }
+
+                    // Show success message
+                    showMessage('Transfer booked successfully! We\'ll contact you soon to confirm details.', 'success');
+
+                    // Reset form
+                    this.reset();
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage('Error saving booking. Please try again.', 'error');
+                }
             }
         });
     }
@@ -88,9 +108,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adventure form handling
     const adventureForm = document.getElementById('adventureForm');
     if (adventureForm) {
-        adventureForm.addEventListener('submit', function(e) {
+        adventureForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             // Get form data
             const formData = new FormData(this);
             const adventureData = {
@@ -103,13 +123,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 adults: formData.get('adventureAdults'),
                 kids: formData.get('adventureKids'),
                 babies: formData.get('adventureBabies'),
-                specialRequests: formData.get('specialRequests')
+                specialRequests: formData.get('specialRequests'),
+                created_at: new Date().toISOString()
             };
 
             // Validate form data
             if (validateAdventureForm(adventureData)) {
-                // Simulate booking submission
-                submitBooking('adventure', adventureData);
+                try {
+                    // Save to Supabase
+                    const { data, error } = await window.supabaseClient
+                        .from('adventures')
+                        .insert([adventureData]);
+
+                    if (error) {
+                        console.error('Error saving adventure:', error);
+                        showMessage('Error saving booking. Please try again.', 'error');
+                        return;
+                    }
+
+                    // Show success message
+                    showMessage('Adventure booked successfully! We\'ll contact you soon to confirm details.', 'success');
+
+                    // Reset form
+                    this.reset();
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage('Error saving booking. Please try again.', 'error');
+                }
             }
         });
     }
@@ -117,21 +157,43 @@ document.addEventListener('DOMContentLoaded', function() {
     // Contact form handling
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             // Get form data
             const formData = new FormData(this);
             const contactData = {
                 name: formData.get('contactName'),
                 email: formData.get('contactEmail'),
-                message: formData.get('contactMessage')
+                phone: formData.get('contactPhone') || null,
+                subject: formData.get('contactSubject') || null,
+                message: formData.get('contactMessage'),
+                created_at: new Date().toISOString()
             };
 
             // Validate form data
             if (validateContactForm(contactData)) {
-                // Simulate message submission
-                submitContact(contactData);
+                try {
+                    // Save to Supabase
+                    const { data, error } = await window.supabaseClient
+                        .from('contacts')
+                        .insert([contactData]);
+
+                    if (error) {
+                        console.error('Error saving contact:', error);
+                        showMessage('Error sending message. Please try again.', 'error');
+                        return;
+                    }
+
+                    // Show success message
+                    showMessage('Message sent successfully! We\'ll get back to you soon.', 'success');
+
+                    // Reset form
+                    this.reset();
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage('Error sending message. Please try again.', 'error');
+                }
             }
         });
     }
