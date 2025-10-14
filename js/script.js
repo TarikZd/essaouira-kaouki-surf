@@ -93,18 +93,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Test Supabase connection on page load
+    // Test storage connection on page load
     window.addEventListener('load', async function() {
-        console.log('Page loaded, testing Supabase connection...');
-        const testResult = await window.testSupabaseConnection();
+        console.log('Page loaded, testing storage connection...');
+        const testResult = await window.testStorageConnection();
         if (testResult.success) {
-            console.log('✅ Supabase connection successful');
+            if (testResult.method === 'json') {
+                console.log('✅ JSON storage method active - forms will save to localStorage');
+                console.log('💡 To view saved data, check browser console or localStorage');
+            } else {
+                console.log('✅ Supabase connection successful');
+            }
         } else {
-            console.error('❌ Supabase connection failed:', testResult.error);
-            console.log('This might be because:');
-            console.log('1. Tables don\'t exist in Supabase');
-            console.log('2. RLS policies are blocking access');
-            console.log('3. Network/CORS issues');
+            console.error('❌ Storage connection failed:', testResult.error);
         }
     });
 
@@ -136,33 +137,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Validate form data
             if (validateTransferForm(transferData)) {
-                console.log('Transfer form validation passed, attempting to save to Supabase'); // Debug log
+                console.log('Transfer form validation passed, attempting to save to JSON'); // Debug log
                 try {
-                    // Save to Supabase
-                    const { data, error } = await window.supabaseClient
-                        .from('transfers')
-                        .insert([transferData]);
+                    // Save to JSON
+                    const result = await window.saveToJSON('transfers', transferData);
 
-                    if (error) {
-                        console.error('❌ Error saving transfer:', error);
-                        console.error('Error details:', {
-                            message: error.message,
-                            details: error.details,
-                            hint: error.hint,
-                            code: error.code
-                        });
-                        showMessage(`Error saving booking: ${error.message}. Please try again.`, 'error');
+                    if (!result.success) {
+                        console.error('❌ Error saving transfer:', result.error);
+                        showMessage(`Error saving booking: ${result.error.message || 'Unknown error'}. Please try again.`, 'error');
                         return;
                     }
 
-                    console.log('✅ Transfer saved successfully:', data); // Debug log
+                    console.log('✅ Transfer saved successfully to localStorage:', result.data); // Debug log
+                    console.log('💡 Check browser console or localStorage to view saved data');
                     // Show success message
                     showMessage('Transfer booked successfully! We\'ll contact you soon to confirm details.', 'success');
 
                     // Reset form
                     this.reset();
                 } catch (error) {
-                    console.error('❌ Network or unexpected error:', error);
+                    console.error('❌ Unexpected error:', error);
                     showMessage('Error saving booking. Please try again.', 'error');
                 }
             } else {
@@ -197,24 +191,24 @@ document.addEventListener('DOMContentLoaded', function() {
             // Validate form data
             if (validateAdventureForm(adventureData)) {
                 try {
-                    // Save to Supabase
-                    const { data, error } = await window.supabaseClient
-                        .from('adventures')
-                        .insert([adventureData]);
+                    // Save to JSON
+                    const result = await window.saveToJSON('adventures', adventureData);
 
-                    if (error) {
-                        console.error('Error saving adventure:', error);
-                        showMessage('Error saving booking. Please try again.', 'error');
+                    if (!result.success) {
+                        console.error('❌ Error saving adventure:', result.error);
+                        showMessage(`Error saving booking: ${result.error.message || 'Unknown error'}. Please try again.`, 'error');
                         return;
                     }
 
+                    console.log('✅ Adventure saved successfully to localStorage:', result.data);
+                    console.log('💡 Check browser console or localStorage to view saved data');
                     // Show success message
                     showMessage('Adventure booked successfully! We\'ll contact you soon to confirm details.', 'success');
 
                     // Reset form
                     this.reset();
                 } catch (error) {
-                    console.error('Error:', error);
+                    console.error('❌ Unexpected error:', error);
                     showMessage('Error saving booking. Please try again.', 'error');
                 }
             }
@@ -240,24 +234,24 @@ document.addEventListener('DOMContentLoaded', function() {
             // Validate form data
             if (validateContactForm(contactData)) {
                 try {
-                    // Save to Supabase
-                    const { data, error } = await window.supabaseClient
-                        .from('contacts')
-                        .insert([contactData]);
+                    // Save to JSON
+                    const result = await window.saveToJSON('contacts', contactData);
 
-                    if (error) {
-                        console.error('Error saving contact:', error);
-                        showMessage('Error sending message. Please try again.', 'error');
+                    if (!result.success) {
+                        console.error('❌ Error saving contact:', result.error);
+                        showMessage(`Error sending message: ${result.error.message || 'Unknown error'}. Please try again.`, 'error');
                         return;
                     }
 
+                    console.log('✅ Contact saved successfully to localStorage:', result.data);
+                    console.log('💡 Check browser console or localStorage to view saved data');
                     // Show success message
                     showMessage('Message sent successfully! We\'ll get back to you soon.', 'success');
 
                     // Reset form
                     this.reset();
                 } catch (error) {
-                    console.error('Error:', error);
+                    console.error('❌ Unexpected error:', error);
                     showMessage('Error sending message. Please try again.', 'error');
                 }
             }
@@ -285,20 +279,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (validateSouksForm(souksData)) {
                 try {
-                    const { data, error } = await window.supabaseClient
-                        .from('adventures')
-                        .insert([souksData]);
+                    // Save to JSON
+                    const result = await window.saveToJSON('adventures', souksData);
 
-                    if (error) {
-                        console.error('Error saving souks booking:', error);
-                        showMessage('Error saving booking. Please try again.', 'error');
+                    if (!result.success) {
+                        console.error('❌ Error saving souks booking:', result.error);
+                        showMessage(`Error saving booking: ${result.error.message || 'Unknown error'}. Please try again.`, 'error');
                         return;
                     }
 
+                    console.log('✅ Souks Adventure saved successfully to localStorage:', result.data);
+                    console.log('💡 Check browser console or localStorage to view saved data');
                     showMessage('Souks Adventure booked successfully! We\'ll contact you soon to confirm details.', 'success');
                     this.reset();
                 } catch (error) {
-                    console.error('Error:', error);
+                    console.error('❌ Unexpected error:', error);
                     showMessage('Error saving booking. Please try again.', 'error');
                 }
             }
@@ -328,20 +323,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (validateSurfForm(surfData)) {
                 try {
-                    const { data, error } = await window.supabaseClient
-                        .from('adventures')
-                        .insert([surfData]);
+                    // Save to JSON
+                    const result = await window.saveToJSON('adventures', surfData);
 
-                    if (error) {
-                        console.error('Error saving surf booking:', error);
-                        showMessage('Error saving booking. Please try again.', 'error');
+                    if (!result.success) {
+                        console.error('❌ Error saving surf booking:', result.error);
+                        showMessage(`Error saving booking: ${result.error.message || 'Unknown error'}. Please try again.`, 'error');
                         return;
                     }
 
+                    console.log('✅ Surf Experience saved successfully to localStorage:', result.data);
+                    console.log('💡 Check browser console or localStorage to view saved data');
                     showMessage('Surf Experience booked successfully! We\'ll contact you soon to confirm details.', 'success');
                     this.reset();
                 } catch (error) {
-                    console.error('Error:', error);
+                    console.error('❌ Unexpected error:', error);
                     showMessage('Error saving booking. Please try again.', 'error');
                 }
             }
@@ -371,20 +367,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (validateIftaneForm(iftaneData)) {
                 try {
-                    const { data, error } = await window.supabaseClient
-                        .from('adventures')
-                        .insert([iftaneData]);
+                    // Save to JSON
+                    const result = await window.saveToJSON('adventures', iftaneData);
 
-                    if (error) {
-                        console.error('Error saving iftane booking:', error);
-                        showMessage('Error saving booking. Please try again.', 'error');
+                    if (!result.success) {
+                        console.error('❌ Error saving iftane booking:', result.error);
+                        showMessage(`Error saving booking: ${result.error.message || 'Unknown error'}. Please try again.`, 'error');
                         return;
                     }
 
+                    console.log('✅ Surf & Food Experience saved successfully to localStorage:', result.data);
+                    console.log('💡 Check browser console or localStorage to view saved data');
                     showMessage('Surf & Food Experience booked successfully! We\'ll contact you soon to confirm details.', 'success');
                     this.reset();
                 } catch (error) {
-                    console.error('Error:', error);
+                    console.error('❌ Unexpected error:', error);
                     showMessage('Error saving booking. Please try again.', 'error');
                 }
             }
@@ -413,20 +410,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (validateTafednaForm(tafednaData)) {
                 try {
-                    const { data, error } = await window.supabaseClient
-                        .from('adventures')
-                        .insert([tafednaData]);
+                    // Save to JSON
+                    const result = await window.saveToJSON('adventures', tafednaData);
 
-                    if (error) {
-                        console.error('Error saving tafedna booking:', error);
-                        showMessage('Error saving booking. Please try again.', 'error');
+                    if (!result.success) {
+                        console.error('❌ Error saving tafedna booking:', result.error);
+                        showMessage(`Error saving booking: ${result.error.message || 'Unknown error'}. Please try again.`, 'error');
                         return;
                     }
 
+                    console.log('✅ Tafedna Experience saved successfully to localStorage:', result.data);
+                    console.log('💡 Check browser console or localStorage to view saved data');
                     showMessage('Tafedna Experience booked successfully! We\'ll contact you soon to confirm details.', 'success');
                     this.reset();
                 } catch (error) {
-                    console.error('Error:', error);
+                    console.error('❌ Unexpected error:', error);
                     showMessage('Error saving booking. Please try again.', 'error');
                 }
             }
@@ -456,20 +454,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (validateFishingForm(fishingData)) {
                 try {
-                    const { data, error } = await window.supabaseClient
-                        .from('adventures')
-                        .insert([fishingData]);
+                    // Save to JSON
+                    const result = await window.saveToJSON('adventures', fishingData);
 
-                    if (error) {
-                        console.error('Error saving fishing booking:', error);
-                        showMessage('Error saving booking. Please try again.', 'error');
+                    if (!result.success) {
+                        console.error('❌ Error saving fishing booking:', result.error);
+                        showMessage(`Error saving booking: ${result.error.message || 'Unknown error'}. Please try again.`, 'error');
                         return;
                     }
 
+                    console.log('✅ Fishing Experience saved successfully to localStorage:', result.data);
+                    console.log('💡 Check browser console or localStorage to view saved data');
                     showMessage('Fishing Experience booked successfully! We\'ll contact you soon to confirm details.', 'success');
                     this.reset();
                 } catch (error) {
-                    console.error('Error:', error);
+                    console.error('❌ Unexpected error:', error);
                     showMessage('Error saving booking. Please try again.', 'error');
                 }
             }
@@ -498,20 +497,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (validateVillagesForm(villagesData)) {
                 try {
-                    const { data, error } = await window.supabaseClient
-                        .from('adventures')
-                        .insert([villagesData]);
+                    // Save to JSON
+                    const result = await window.saveToJSON('adventures', villagesData);
 
-                    if (error) {
-                        console.error('Error saving villages booking:', error);
-                        showMessage('Error saving booking. Please try again.', 'error');
+                    if (!result.success) {
+                        console.error('❌ Error saving villages booking:', result.error);
+                        showMessage(`Error saving booking: ${result.error.message || 'Unknown error'}. Please try again.`, 'error');
                         return;
                     }
 
+                    console.log('✅ Coastal Villages Tour saved successfully to localStorage:', result.data);
+                    console.log('💡 Check browser console or localStorage to view saved data');
                     showMessage('Coastal Villages Tour booked successfully! We\'ll contact you soon to confirm details.', 'success');
                     this.reset();
                 } catch (error) {
-                    console.error('Error:', error);
+                    console.error('❌ Unexpected error:', error);
                     showMessage('Error saving booking. Please try again.', 'error');
                 }
             }
