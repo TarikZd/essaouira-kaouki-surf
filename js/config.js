@@ -19,17 +19,32 @@ window.saveToJSON = async function(formType, data) {
             const response = await fetch(`data/${formType}.json`);
             if (response.ok) {
                 const jsonData = await response.json();
+                console.log('Fetched JSON data:', jsonData);
                 // Extract array from dictionary format
                 if (jsonData && jsonData[formType] && Array.isArray(jsonData[formType])) {
                     existingData = jsonData[formType];
+                    console.log('Extracted existing data array:', existingData);
+                } else {
+                    console.log('JSON data format unexpected, using empty array');
                 }
+            } else {
+                console.log('JSON file not found or not accessible');
             }
         } catch (e) {
-            console.log('No existing JSON file or read error, starting fresh');
+            console.log('Error reading JSON file:', e);
+        }
+
+        console.log('existingData before push:', existingData, 'Type:', typeof existingData, 'Is array:', Array.isArray(existingData));
+
+        // Ensure existingData is an array
+        if (!Array.isArray(existingData)) {
+            console.log('existingData is not an array, resetting to empty array');
+            existingData = [];
         }
 
         // Add new entry
         existingData.push(entryData);
+        console.log('existingData after push:', existingData);
 
         // Create updated JSON data as dictionary
         const updatedJsonData = { [formType]: existingData };
