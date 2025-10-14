@@ -99,20 +99,19 @@ document.addEventListener('DOMContentLoaded', function() {
         transferForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Get form data
-            const formData = new FormData(this);
+            // Get form data using form elements directly
             const transferData = {
-                fullName: formData.get('fullName'),
-                countryCode: formData.get('countryCode'),
-                phoneNumber: formData.get('phoneNumber'),
-                type: formData.get('transferType'),
-                pickupLocation: formData.get('pickupLocation'),
-                dropoffLocation: formData.get('dropoffLocation'),
-                date: formData.get('transferDate'),
-                time: formData.get('transferTime'),
-                adults: formData.get('adults'),
-                kids: formData.get('kids'),
-                babies: formData.get('babies'),
+                fullName: document.getElementById('fullName').value,
+                countryCode: document.getElementById('countryCode').value,
+                phoneNumber: document.getElementById('phoneNumber').value,
+                type: document.getElementById('transferType').value,
+                pickupLocation: document.getElementById('pickupLocation').value,
+                dropoffLocation: document.getElementById('dropoffLocation').value,
+                date: document.getElementById('transferDate').value,
+                time: document.getElementById('transferTime').value,
+                adults: document.getElementById('adults').value,
+                kids: document.getElementById('kids').value,
+                babies: document.getElementById('babies').value,
                 created_at: new Date().toISOString()
             };
 
@@ -149,19 +148,18 @@ document.addEventListener('DOMContentLoaded', function() {
         adventureForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Get form data
-            const formData = new FormData(this);
+            // Get form data using form elements directly
             const adventureData = {
-                fullName: formData.get('adventureFullName'),
-                countryCode: formData.get('adventureCountryCode'),
-                phoneNumber: formData.get('adventurePhoneNumber'),
-                type: formData.get('adventureType'),
-                date: formData.get('adventureDate'),
-                duration: formData.get('adventureDuration'),
-                adults: formData.get('adventureAdults'),
-                kids: formData.get('adventureKids'),
-                babies: formData.get('adventureBabies'),
-                specialRequests: formData.get('specialRequests'),
+                fullName: document.getElementById('adventureFullName').value,
+                countryCode: document.getElementById('adventureCountryCode').value,
+                phoneNumber: document.getElementById('adventurePhoneNumber').value,
+                type: document.getElementById('adventureType').value,
+                date: document.getElementById('adventureDate').value,
+                duration: document.getElementById('adventureDuration').value,
+                adults: document.getElementById('adventureAdults').value,
+                kids: document.getElementById('adventureKids').value,
+                babies: document.getElementById('adventureBabies').value,
+                specialRequests: document.getElementById('specialRequests').value,
                 created_at: new Date().toISOString()
             };
 
@@ -198,14 +196,13 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Get form data
-            const formData = new FormData(this);
+            // Get form data using form elements directly
             const contactData = {
-                name: formData.get('contactName'),
-                email: formData.get('contactEmail'),
-                phone: formData.get('contactPhone') || null,
-                subject: formData.get('contactSubject') || null,
-                message: formData.get('contactMessage'),
+                name: document.getElementById('contactName').value,
+                email: document.getElementById('contactEmail').value,
+                phone: document.getElementById('contactPhone').value || null,
+                subject: document.getElementById('contactSubject').value || null,
+                message: document.getElementById('contactMessage').value,
                 created_at: new Date().toISOString()
             };
 
