@@ -243,6 +243,260 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Souks form handling
+    const souksForm = document.getElementById('souksForm');
+    if (souksForm) {
+        souksForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const souksData = {
+                fullName: document.getElementById('souksFullName').value,
+                email: document.getElementById('souksEmail').value,
+                countryCode: document.getElementById('souksCountryCode').value,
+                phoneNumber: document.getElementById('souksPhoneNumber').value,
+                date: document.getElementById('souksDate').value,
+                duration: document.getElementById('souksDuration').value,
+                adults: document.getElementById('souksAdults').value,
+                kids: document.getElementById('souksKids').value,
+                specialRequests: document.getElementById('souksSpecialRequests').value,
+                created_at: new Date().toISOString()
+            };
+
+            if (validateSouksForm(souksData)) {
+                try {
+                    const { data, error } = await window.supabaseClient
+                        .from('adventures')
+                        .insert([souksData]);
+
+                    if (error) {
+                        console.error('Error saving souks booking:', error);
+                        showMessage('Error saving booking. Please try again.', 'error');
+                        return;
+                    }
+
+                    showMessage('Souks Adventure booked successfully! We\'ll contact you soon to confirm details.', 'success');
+                    this.reset();
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage('Error saving booking. Please try again.', 'error');
+                }
+            }
+        });
+    }
+
+    // Surf form handling
+    const surfForm = document.getElementById('surfForm');
+    if (surfForm) {
+        surfForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const surfData = {
+                fullName: document.getElementById('surfFullName').value,
+                email: document.getElementById('surfEmail').value,
+                countryCode: document.getElementById('surfCountryCode').value,
+                phoneNumber: document.getElementById('surfPhoneNumber').value,
+                skillLevel: document.getElementById('surfSkillLevel').value,
+                date: document.getElementById('surfDate').value,
+                duration: document.getElementById('surfDuration').value,
+                adults: document.getElementById('surfAdults').value,
+                teens: document.getElementById('surfTeens').value,
+                equipment: document.getElementById('surfEquipment').value,
+                specialRequests: document.getElementById('surfSpecialRequests').value,
+                created_at: new Date().toISOString()
+            };
+
+            if (validateSurfForm(surfData)) {
+                try {
+                    const { data, error } = await window.supabaseClient
+                        .from('adventures')
+                        .insert([surfData]);
+
+                    if (error) {
+                        console.error('Error saving surf booking:', error);
+                        showMessage('Error saving booking. Please try again.', 'error');
+                        return;
+                    }
+
+                    showMessage('Surf Experience booked successfully! We\'ll contact you soon to confirm details.', 'success');
+                    this.reset();
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage('Error saving booking. Please try again.', 'error');
+                }
+            }
+        });
+    }
+
+    // Iftane form handling
+    const iftaneForm = document.getElementById('iftaneForm');
+    if (iftaneForm) {
+        iftaneForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const iftaneData = {
+                fullName: document.getElementById('iftaneFullName').value,
+                email: document.getElementById('iftaneEmail').value,
+                countryCode: document.getElementById('iftaneCountryCode').value,
+                phoneNumber: document.getElementById('iftanePhoneNumber').value,
+                skillLevel: document.getElementById('iftaneSkillLevel').value,
+                date: document.getElementById('iftaneDate').value,
+                mealPreference: document.getElementById('iftaneMealPreference').value,
+                adults: document.getElementById('iftaneAdults').value,
+                teens: document.getElementById('iftaneTeens').value,
+                dietaryRestrictions: document.getElementById('iftaneDietaryRestrictions').value,
+                specialRequests: document.getElementById('iftaneSpecialRequests').value,
+                created_at: new Date().toISOString()
+            };
+
+            if (validateIftaneForm(iftaneData)) {
+                try {
+                    const { data, error } = await window.supabaseClient
+                        .from('adventures')
+                        .insert([iftaneData]);
+
+                    if (error) {
+                        console.error('Error saving iftane booking:', error);
+                        showMessage('Error saving booking. Please try again.', 'error');
+                        return;
+                    }
+
+                    showMessage('Surf & Food Experience booked successfully! We\'ll contact you soon to confirm details.', 'success');
+                    this.reset();
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage('Error saving booking. Please try again.', 'error');
+                }
+            }
+        });
+    }
+
+    // Tafedna form handling
+    const tafednaForm = document.getElementById('tafednaForm');
+    if (tafednaForm) {
+        tafednaForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const tafednaData = {
+                fullName: document.getElementById('tafednaFullName').value,
+                email: document.getElementById('tafednaEmail').value,
+                countryCode: document.getElementById('tafednaCountryCode').value,
+                phoneNumber: document.getElementById('tafednaPhoneNumber').value,
+                skillLevel: document.getElementById('tafednaSkillLevel').value,
+                date: document.getElementById('tafednaDate').value,
+                mealPreference: document.getElementById('tafednaMealPreference').value,
+                adults: document.getElementById('tafednaAdults').value,
+                dietaryRestrictions: document.getElementById('tafednaDietaryRestrictions').value,
+                specialRequests: document.getElementById('tafednaSpecialRequests').value,
+                created_at: new Date().toISOString()
+            };
+
+            if (validateTafednaForm(tafednaData)) {
+                try {
+                    const { data, error } = await window.supabaseClient
+                        .from('adventures')
+                        .insert([tafednaData]);
+
+                    if (error) {
+                        console.error('Error saving tafedna booking:', error);
+                        showMessage('Error saving booking. Please try again.', 'error');
+                        return;
+                    }
+
+                    showMessage('Tafedna Experience booked successfully! We\'ll contact you soon to confirm details.', 'success');
+                    this.reset();
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage('Error saving booking. Please try again.', 'error');
+                }
+            }
+        });
+    }
+
+    // Fishing form handling
+    const fishingForm = document.getElementById('fishingForm');
+    if (fishingForm) {
+        fishingForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const fishingData = {
+                fullName: document.getElementById('fishingFullName').value,
+                email: document.getElementById('fishingEmail').value,
+                countryCode: document.getElementById('fishingCountryCode').value,
+                phoneNumber: document.getElementById('fishingPhoneNumber').value,
+                experience: document.getElementById('fishingExperience').value,
+                date: document.getElementById('fishingDate').value,
+                time: document.getElementById('fishingTime').value,
+                adults: document.getElementById('fishingAdults').value,
+                teens: document.getElementById('fishingTeens').value,
+                dietaryRestrictions: document.getElementById('fishingDietaryRestrictions').value,
+                specialRequests: document.getElementById('fishingSpecialRequests').value,
+                created_at: new Date().toISOString()
+            };
+
+            if (validateFishingForm(fishingData)) {
+                try {
+                    const { data, error } = await window.supabaseClient
+                        .from('adventures')
+                        .insert([fishingData]);
+
+                    if (error) {
+                        console.error('Error saving fishing booking:', error);
+                        showMessage('Error saving booking. Please try again.', 'error');
+                        return;
+                    }
+
+                    showMessage('Fishing Experience booked successfully! We\'ll contact you soon to confirm details.', 'success');
+                    this.reset();
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage('Error saving booking. Please try again.', 'error');
+                }
+            }
+        });
+    }
+
+    // Villages form handling
+    const villagesForm = document.getElementById('villagesForm');
+    if (villagesForm) {
+        villagesForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const villagesData = {
+                fullName: document.getElementById('villagesFullName').value,
+                email: document.getElementById('villagesEmail').value,
+                countryCode: document.getElementById('villagesCountryCode').value,
+                phoneNumber: document.getElementById('villagesPhoneNumber').value,
+                date: document.getElementById('villagesDate').value,
+                focus: document.getElementById('villagesFocus').value,
+                adults: document.getElementById('villagesAdults').value,
+                kids: document.getElementById('villagesKids').value,
+                dietaryRestrictions: document.getElementById('villagesDietaryRestrictions').value,
+                specialRequests: document.getElementById('villagesSpecialRequests').value,
+                created_at: new Date().toISOString()
+            };
+
+            if (validateVillagesForm(villagesData)) {
+                try {
+                    const { data, error } = await window.supabaseClient
+                        .from('adventures')
+                        .insert([villagesData]);
+
+                    if (error) {
+                        console.error('Error saving villages booking:', error);
+                        showMessage('Error saving booking. Please try again.', 'error');
+                        return;
+                    }
+
+                    showMessage('Coastal Villages Tour booked successfully! We\'ll contact you soon to confirm details.', 'success');
+                    this.reset();
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage('Error saving booking. Please try again.', 'error');
+                }
+            }
+        });
+    }
+
     // Form validation functions
     function validateTransferForm(data) {
         console.log('Validating transfer form data:', data); // Debug log
@@ -315,6 +569,186 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(data.email)) {
             showMessage('Please enter a valid email address.', 'error');
+            return false;
+        }
+
+        return true;
+    }
+
+    function validateSouksForm(data) {
+        if (!data.fullName || !data.email || !data.phoneNumber || !data.date || !data.duration || !data.adults) {
+            showMessage('Please fill in all required fields for the souks adventure booking.', 'error');
+            return false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+            showMessage('Please enter a valid email address.', 'error');
+            return false;
+        }
+
+        if (new Date(data.date) < new Date()) {
+            showMessage('Please select a future date for your souks adventure.', 'error');
+            return false;
+        }
+
+        const totalParticipants = (parseInt(data.adults) || 0) + (parseInt(data.kids) || 0);
+        if (totalParticipants < 1 || totalParticipants > 12) {
+            showMessage('Total number of participants must be between 1 and 12.', 'error');
+            return false;
+        }
+
+        if (parseInt(data.adults) < 1) {
+            showMessage('At least one adult is required for the souks adventure.', 'error');
+            return false;
+        }
+
+        return true;
+    }
+
+    function validateSurfForm(data) {
+        if (!data.fullName || !data.email || !data.phoneNumber || !data.skillLevel || !data.date || !data.duration || !data.adults) {
+            showMessage('Please fill in all required fields for the surf experience booking.', 'error');
+            return false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+            showMessage('Please enter a valid email address.', 'error');
+            return false;
+        }
+
+        if (new Date(data.date) < new Date()) {
+            showMessage('Please select a future date for your surf experience.', 'error');
+            return false;
+        }
+
+        const totalParticipants = (parseInt(data.adults) || 0) + (parseInt(data.teens) || 0);
+        if (totalParticipants < 1 || totalParticipants > 8) {
+            showMessage('Total number of participants must be between 1 and 8.', 'error');
+            return false;
+        }
+
+        if (parseInt(data.adults) < 1) {
+            showMessage('At least one adult is required for the surf experience.', 'error');
+            return false;
+        }
+
+        return true;
+    }
+
+    function validateIftaneForm(data) {
+        if (!data.fullName || !data.email || !data.phoneNumber || !data.skillLevel || !data.date || !data.adults) {
+            showMessage('Please fill in all required fields for the surf & food experience booking.', 'error');
+            return false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+            showMessage('Please enter a valid email address.', 'error');
+            return false;
+        }
+
+        if (new Date(data.date) < new Date()) {
+            showMessage('Please select a future date for your surf & food experience.', 'error');
+            return false;
+        }
+
+        const totalParticipants = (parseInt(data.adults) || 0) + (parseInt(data.teens) || 0);
+        if (totalParticipants < 1 || totalParticipants > 6) {
+            showMessage('Total number of participants must be between 1 and 6.', 'error');
+            return false;
+        }
+
+        if (parseInt(data.adults) < 1) {
+            showMessage('At least one adult is required for the surf & food experience.', 'error');
+            return false;
+        }
+
+        return true;
+    }
+
+    function validateTafednaForm(data) {
+        if (!data.fullName || !data.email || !data.phoneNumber || !data.skillLevel || !data.date || !data.adults) {
+            showMessage('Please fill in all required fields for the tafedna experience booking.', 'error');
+            return false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+            showMessage('Please enter a valid email address.', 'error');
+            return false;
+        }
+
+        if (new Date(data.date) < new Date()) {
+            showMessage('Please select a future date for your tafedna experience.', 'error');
+            return false;
+        }
+
+        if (parseInt(data.adults) < 1) {
+            showMessage('At least one adult is required for the tafedna experience.', 'error');
+            return false;
+        }
+
+        return true;
+    }
+
+    function validateFishingForm(data) {
+        if (!data.fullName || !data.email || !data.phoneNumber || !data.experience || !data.date || !data.time || !data.adults) {
+            showMessage('Please fill in all required fields for the fishing experience booking.', 'error');
+            return false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+            showMessage('Please enter a valid email address.', 'error');
+            return false;
+        }
+
+        if (new Date(data.date) < new Date()) {
+            showMessage('Please select a future date for your fishing experience.', 'error');
+            return false;
+        }
+
+        const totalParticipants = (parseInt(data.adults) || 0) + (parseInt(data.teens) || 0);
+        if (totalParticipants < 1 || totalParticipants > 8) {
+            showMessage('Total number of participants must be between 1 and 8.', 'error');
+            return false;
+        }
+
+        if (parseInt(data.adults) < 1) {
+            showMessage('At least one adult is required for the fishing experience.', 'error');
+            return false;
+        }
+
+        return true;
+    }
+
+    function validateVillagesForm(data) {
+        if (!data.fullName || !data.email || !data.phoneNumber || !data.date || !data.focus || !data.adults) {
+            showMessage('Please fill in all required fields for the coastal villages tour booking.', 'error');
+            return false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+            showMessage('Please enter a valid email address.', 'error');
+            return false;
+        }
+
+        if (new Date(data.date) < new Date()) {
+            showMessage('Please select a future date for your coastal villages tour.', 'error');
+            return false;
+        }
+
+        const totalParticipants = (parseInt(data.adults) || 0) + (parseInt(data.kids) || 0);
+        if (totalParticipants < 1 || totalParticipants > 10) {
+            showMessage('Total number of participants must be between 1 and 10.', 'error');
+            return false;
+        }
+
+        if (parseInt(data.adults) < 1) {
+            showMessage('At least one adult is required for the coastal villages tour.', 'error');
             return false;
         }
 
