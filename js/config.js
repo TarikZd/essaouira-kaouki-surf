@@ -16,10 +16,10 @@ window.supabaseClient = supabase;
 // JSON Storage Functions
 window.saveToJSON = async function(formType, data) {
     try {
-        console.log(`Saving ${formType} data to JSON...`);
+        console.log(`Saving ${formType} data to JSON file...`);
 
-        // Get existing data
-        let existingData = {};
+        // Get existing data from JSON file
+        let existingData = [];
         try {
             const response = await fetch(`data/${formType}.json`);
             if (response.ok) {
@@ -29,19 +29,18 @@ window.saveToJSON = async function(formType, data) {
             console.log('No existing file, creating new one');
         }
 
-        // Add new entry
-        if (!existingData[formType]) {
-            existingData[formType] = [];
-        }
+        // Add new entry with timestamp
+        data.id = Date.now().toString();
+        data.timestamp = new Date().toISOString();
+        existingData.push(data);
 
-        data.id = Date.now().toString(); // Simple ID generation
-        existingData[formType].push(data);
+        // Save to localStorage as backup
+        localStorage.setItem(`${formType}_backup`, JSON.stringify(existingData));
 
-        // Save to JSON file (this would normally be done server-side)
-        console.log(`${formType} data prepared for saving:`, data);
-
-        // For demo purposes, save to localStorage
-        localStorage.setItem(`${formType}_backup`, JSON.stringify(existingData[formType]));
+        // In a real application, this would be sent to a server to save to the JSON file
+        // For now, we save to localStorage and log the data that would be saved
+        console.log(`${formType} data saved to localStorage:`, data);
+        console.log(`To save to JSON file, data would be:`, JSON.stringify(existingData, null, 2));
 
         return { success: true, data: data };
 
