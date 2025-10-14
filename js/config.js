@@ -13,19 +13,38 @@ window.saveToJSON = async function(formType, data) {
             ...data
         };
 
+        console.log('entryData created:', entryData);
+
         // Read existing JSON file data
         let existingData = [];
+        console.log('Initializing existingData as empty array');
+
         try {
+            console.log(`Fetching data/${formType}.json...`);
             const response = await fetch(`data/${formType}.json`);
+            console.log('Fetch response status:', response.status, response.ok);
+
             if (response.ok) {
                 const jsonData = await response.json();
-                console.log('Fetched JSON data:', jsonData);
+                console.log('Raw JSON data fetched:', jsonData);
+                console.log('Type of jsonData:', typeof jsonData);
+                console.log('jsonData keys:', Object.keys(jsonData));
+
                 // Extract array from dictionary format
-                if (jsonData && jsonData[formType] && Array.isArray(jsonData[formType])) {
-                    existingData = jsonData[formType];
-                    console.log('Extracted existing data array:', existingData);
+                if (jsonData && typeof jsonData === 'object' && jsonData[formType]) {
+                    console.log(`Found ${formType} key in jsonData:`, jsonData[formType]);
+                    console.log(`Type of jsonData[${formType}]:`, typeof jsonData[formType]);
+                    console.log(`Is array:`, Array.isArray(jsonData[formType]));
+
+                    if (Array.isArray(jsonData[formType])) {
+                        existingData = jsonData[formType];
+                        console.log('Successfully extracted existing data array:', existingData);
+                    } else {
+                        console.log('jsonData[formType] is not an array, using empty array');
+                        existingData = [];
+                    }
                 } else {
-                    console.log('JSON data format unexpected, using empty array');
+                    console.log('JSON data does not have expected structure, using empty array');
                     existingData = [];
                 }
             } else {
@@ -37,25 +56,30 @@ window.saveToJSON = async function(formType, data) {
             existingData = [];
         }
 
-        console.log('existingData before push:', existingData, 'Type:', typeof existingData, 'Is array:', Array.isArray(existingData));
+        console.log('Final existingData before validation:', existingData);
+        console.log('Type:', typeof existingData);
+        console.log('Is array:', Array.isArray(existingData));
+        console.log('Length:', existingData.length);
 
-        // Ensure existingData is an array (double check)
+        // Ensure existingData is an array (triple check)
         if (!Array.isArray(existingData)) {
-            console.log('CRITICAL: existingData is not an array after all checks, forcing empty array');
+            console.log('CRITICAL: existingData is not an array, forcing empty array');
+            console.log('existingData was:', existingData);
             existingData = [];
         }
 
-        // Add new entry
-        try {
-            existingData.push(entryData);
-            console.log('existingData after push:', existingData);
-        } catch (pushError) {
-            console.error('CRITICAL ERROR: push failed:', pushError);
-            console.error('existingData type:', typeof existingData);
-            console.error('existingData value:', existingData);
-            console.error('entryData:', entryData);
-            throw pushError;
-        }
+        console.log('existingData after validation:', existingData);
+
+        // Add new entry with error handling
+        console.log('About to push entryData to existingData...');
+        console.log('entryData:', entryData);
+
+        const originalLength = existingData.length;
+        existingData.push(entryData);
+
+        console.log('Push successful!');
+        console.log('Array length changed from', originalLength, 'to', existingData.length);
+        console.log('Final existingData:', existingData);
 
         // Create updated JSON data as dictionary
         const updatedJsonData = { [formType]: existingData };
