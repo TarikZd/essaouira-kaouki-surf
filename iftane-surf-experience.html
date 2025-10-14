@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experience Iftane Beach Surf & Food Experience - combine world-class surfing with authentic Moroccan cuisine in a stunning coastal paradise.">
+    <meta name="keywords" content="Iftane beach, Morocco surfing, surf and food, coastal dining, beach experience, Moroccan cuisine, surf lessons">
+    <meta name="author" content="Essaouira Kaouki Surf">
+    <meta name="robots" content="index, follow">
+    <title>Iftane Beach Surf & Food Experience - Surfing with Moroccan Cuisine</title>
+    <link rel="icon" type="image/jpg" href="images/Essaouira-Kaouki-Surf-Favocn.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKNZVSBHJ2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MKNZVSBHJ2');
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="images/Essaouira-Kaouki-Surf-Fishing-Logo.jpg" alt="Essaouira Kaouki Surf Logo" class="logo">
+                <h1>Essaouira Kaouki Surf</h1>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                <span>☰</span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#transfers">Transfers</a></li>
+                <li><a href="index.html#adventure">Adventure</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="background: linear-gradient(rgba(52, 152, 219, 0.7), rgba(44, 62, 80, 0.7)), url('images/Essaouira-Iftane-Beach.jpg'); background-size: cover; background-position: center;">
+            <div class="hero-content">
+                <h2>Iftane Beach Surf & Food Experience</h2>
+                <p>Ride the waves and savor Morocco's finest cuisine in one unforgettable coastal adventure</p>
+                <a href="#book-now" class="cta-button">Book Surf & Food Experience</a>
+            </div>
+        </section>
+
+        <section class="booking-section">
+            <div class="booking-container">
+                <div class="booking-info">
+                    <h3>The Perfect Blend of Surfing & Cuisine</h3>
+                    <p>Iftane Beach offers the ultimate combination of world-class surfing and authentic Moroccan gastronomy. Start your morning with professional surf lessons in crystal-clear waters, then relax with a traditional Moroccan lunch prepared by local chefs using the freshest ingredients from the Atlantic.</p>
+
+                    <h4>What Makes This Experience Unique:</h4>
+                    <ul>
+                        <li><i class="fas fa-water"></i> <strong>Morning Surf Session:</strong> 2 hours of professional surf instruction</li>
+                        <li><i class="fas fa-utensils"></i> <strong>Traditional Moroccan Lunch:</strong> Fresh seafood and local specialties</li>
+                        <li><i class="fas fa-umbrella-beach"></i> <strong>Beachside Relaxation:</strong> Lounge on pristine white sands</li>
+                        <li><i class="fas fa-camera"></i> <strong>Professional Photography:</strong> Capture your surfing achievements</li>
+                        <li><i class="fas fa-users"></i> <strong>Small Groups:</strong> Maximum 6 people for personalized experience</li>
+                        <li><i class="fas fa-leaf"></i> <strong>Fresh Local Ingredients:</strong> Sustainably sourced seafood and produce</li>
+                    </ul>
+
+                    <div class="adventure-highlights">
+                        <div class="highlight">
+                            <h5><i class="fas fa-clock"></i> Duration</h5>
+                            <p>4-5 hours</p>
+                        </div>
+                        <div class="highlight">
+                            <h5><i class="fas fa-users"></i> Group Size</h5>
+                            <p>2-6 people</p>
+                        </div>
+                        <div class="highlight">
+                            <h5><i class="fas fa-language"></i> Languages</h5>
+                            <p>English, French, Arabic</p>
+                        </div>
+                        <div class="highlight">
+                            <h5><i class="fas fa-euro-sign"></i> Price</h5>
+                            <p>From €65 per person</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-form">
+                    <h3>Book Your Surf & Food Experience</h3>
+                    <form id="iftaneForm">
+                        <div class="form-group">
+                            <label for="iftaneFullName">Full Name: <span class="required">*</span></label>
+                            <input type="text" id="iftaneFullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="iftaneEmail">Email: <span class="required">*</span></label>
+                            <input type="email" id="iftaneEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="iftanePhoneNumber">Phone Number: <span class="required">*</span></label>
+                            <div class="phone-input-container">
+                                <select id="iftaneCountryCode" class="country-code-select" required>
+                                    <option value="+49">🇩🇪 +49 (Germany)</option>
+                                    <option value="+212">🇲🇦 +212 (Morocco)</option>
+                                    <option value="+33">🇫🇷 +33 (France)</option>
+                                    <option value="+34">🇪🇸 +34 (Spain)</option>
+                                    <option value="+39">🇮🇹 +39 (Italy)</option>
+                                    <option value="+44">🇬🇧 +44 (UK)</option>
+                                    <option value="+1">🇺🇸 +1 (USA)</option>
+                                </select>
+                                <input type="tel" id="iftanePhoneNumber" class="phone-number-input" placeholder="Phone number" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="iftaneSkillLevel">Surfing Experience: <span class="required">*</span></label>
+                            <select id="iftaneSkillLevel" required>
+                                <option value="">Select your level</option>
+                                <option value="beginner">Beginner (First time)</option>
+                                <option value="intermediate">Intermediate (Some experience)</option>
+                                <option value="advanced">Advanced (Regular surfer)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="iftaneDate">Preferred Date: <span class="required">*</span></label>
+                            <input type="date" id="iftaneDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="iftaneMealPreference">Meal Preferences:</label>
+                            <select id="iftaneMealPreference">
+                                <option value="standard">Standard Moroccan (Fish/Seafood)</option>
+                                <option value="vegetarian">Vegetarian Option</option>
+                                <option value="vegan">Vegan Option</option>
+                                <option value="halal">Halal Certified</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Number of Participants: <span class="required">*</span></label>
+                            <div class="passenger-inputs">
+                                <div class="passenger-type">
+                                    <label for="iftaneAdults">Adults (12+ years): <span class="required">*</span></label>
+                                    <input type="number" id="iftaneAdults" min="1" max="6" value="1" required>
+                                </div>
+                                <div class="passenger-type">
+                                    <label for="iftaneTeens">Teens (8-17 years): <span class="required">*</span></label>
+                                    <input type="number" id="iftaneTeens" min="0" max="6" value="0" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="iftaneDietaryRestrictions">Dietary Restrictions:</label>
+                            <textarea id="iftaneDietaryRestrictions" rows="2" placeholder="Any allergies or dietary restrictions?"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="iftaneSpecialRequests">Special Requests:</label>
+                            <textarea id="iftaneSpecialRequests" rows="3" placeholder="Any special requirements or preferences?"></textarea>
+                        </div>
+                        <button type="submit" class="submit-button" id="book-now">Book Surf & Food Experience</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="booking-section">
+            <h3 style="text-align: center; margin-bottom: 2rem;">Your Complete Iftane Experience</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-sun" style="font-size: 3rem; color: #f39c12; margin-bottom: 1rem;"></i>
+                    <h4>Morning Surf Session</h4>
+                    <p>Start your day with professional surf instruction in Iftane's perfect waves. Our certified instructors adapt to your skill level for the best learning experience.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-utensils" style="font-size: 3rem; color: #e74c3c; margin-bottom: 1rem;"></i>
+                    <h4>Traditional Moroccan Feast</h4>
+                    <p>Enjoy a freshly prepared Moroccan lunch featuring grilled fish, couscous, tagine, and traditional pastries, all made with locally sourced ingredients.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-water" style="font-size: 3rem; color: #3498db; margin-bottom: 1rem;"></i>
+                    <h4>Crystal Clear Waters</h4>
+                    <p>Iftane Beach is known for its exceptionally clear waters and consistent waves, making it perfect for both surfing and water activities.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-camera" style="font-size: 3rem; color: #9b59b6; margin-bottom: 1rem;"></i>
+                    <h4>Professional Photography</h4>
+                    <p>Capture your surfing moments and beachside dining experience with professional photos that you'll cherish forever.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-leaf" style="font-size: 3rem; color: #27ae60; margin-bottom: 1rem;"></i>
+                    <h4>Sustainable & Fresh</h4>
+                    <p>All our ingredients are sustainably sourced from local fishermen and farmers, ensuring the freshest and most authentic flavors.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-users" style="font-size: 3rem; color: #e67e22; margin-bottom: 1rem;"></i>
+                    <h4>Intimate Experience</h4>
+                    <p>With a maximum of 6 participants, you'll receive personalized attention from both surf instructors and our culinary team.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="booking-section" style="background: linear-gradient(rgba(248, 249, 250, 0.85), rgba(248, 249, 250, 0.85)), url('images/Essaouira-Iftane-Beach.jpg'); background-size: cover; background-position: center;">
+            <div style="background: rgba(255, 255, 255, 0.95); padding: 3rem; border-radius: 15px; max-width: 800px; margin: 0 auto;">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #2c3e50;">Sample Menu</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h4 style="color: #3498db; margin-bottom: 1rem;">Appetizers</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">• Fresh seafood salad with citrus dressing</li>
+                            <li style="margin-bottom: 0.5rem;">• Grilled vegetable skewers</li>
+                            <li style="margin-bottom: 0.5rem;">• Traditional Moroccan bread with olive oil</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #3498db; margin-bottom: 1rem;">Main Course</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">• Grilled fresh fish with herbs</li>
+                            <li style="margin-bottom: 0.5rem;">• Seafood tagine with couscous</li>
+                            <li style="margin-bottom: 0.5rem;">• Vegetarian couscous (option available)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #3498db; margin-bottom: 1rem;">Dessert</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">• Fresh fruit platter</li>
+                            <li style="margin-bottom: 0.5rem;">• Traditional Moroccan pastries</li>
+                            <li style="margin-bottom: 0.5rem;">• Mint tea service</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><strong>Phone:</strong> +212 628 438 838</p>
+                <p><strong>Email:</strong> moorishutility@gmail.com</p>
+                <p><strong>Address:</strong> 06 Rue Takadoum Lot 5, Essaouira, Morocco</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/profile.php?id=61581484462605" class="social-link facebook" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/moorish.travels/" class="social-link instagram" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://tiktok.com/@moorishtravels" class="social-link tiktok" target="_blank" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/212628438838" class="social-link whatsapp" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Essaouira Kaouki Surf. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

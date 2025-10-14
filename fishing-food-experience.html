@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experience authentic Moroccan fishing and food culture - join local fishermen, learn traditional techniques, and enjoy fresh seafood prepared beachside.">
+    <meta name="keywords" content="Morocco fishing, traditional fishing, seafood experience, local cuisine, Essaouira fishing, beach dining, cultural immersion">
+    <meta name="author" content="Essaouira Kaouki Surf">
+    <meta name="robots" content="index, follow">
+    <title>Fishing & Food Experience - Traditional Moroccan Fishing Culture</title>
+    <link rel="icon" type="image/jpg" href="images/Essaouira-Kaouki-Surf-Favocn.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKNZVSBHJ2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MKNZVSBHJ2');
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="images/Essaouira-Kaouki-Surf-Fishing-Logo.jpg" alt="Essaouira Kaouki Surf Logo" class="logo">
+                <h1>Essaouira Kaouki Surf</h1>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                <span>☰</span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#transfers">Transfers</a></li>
+                <li><a href="index.html#adventure">Adventure</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="background: linear-gradient(rgba(52, 152, 219, 0.7), rgba(44, 62, 80, 0.7)), url('images/Essaouira-Harbor.jpg'); background-size: cover; background-position: center;">
+            <div class="hero-content">
+                <h2>Fishing & Food Experience</h2>
+                <p>Discover Morocco's ancient fishing traditions and savor the freshest seafood on the Atlantic coast</p>
+                <a href="#book-now" class="cta-button">Book Fishing Experience</a>
+            </div>
+        </section>
+
+        <section class="booking-section">
+            <div class="booking-container">
+                <div class="booking-info">
+                    <h3>From Ocean to Table</h3>
+                    <p>Immerse yourself in Essaouira's rich fishing heritage, where the Atlantic Ocean has sustained local communities for centuries. Join experienced fishermen at dawn, learn traditional fishing techniques, and enjoy a beachside feast featuring the day's freshest catch.</p>
+
+                    <h4>What Makes This Experience Authentic:</h4>
+                    <ul>
+                        <li><i class="fas fa-ship"></i> <strong>Dawn Fishing Trip:</strong> Join local fishermen on traditional wooden boats</li>
+                        <li><i class="fas fa-fish"></i> <strong>Hands-On Learning:</strong> Experience traditional Moroccan fishing methods</li>
+                        <li><i class="fas fa-utensils"></i> <strong>Fresh Seafood Feast:</strong> Beachside preparation of your catch</li>
+                        <li><i class="fas fa-users"></i> <strong>Community Connection:</strong> Meet and learn from local fishing families</li>
+                        <li><i class="fas fa-sun"></i> <strong>Sunset Dining:</strong> Romantic beachside dinner experience</li>
+                        <li><i class="fas fa-camera"></i> <strong>Cultural Photography:</strong> Document Morocco's fishing heritage</li>
+                    </ul>
+
+                    <div class="adventure-highlights">
+                        <div class="highlight">
+                            <h5><i class="fas fa-clock"></i> Duration</h5>
+                            <p>6-8 hours</p>
+                        </div>
+                        <div class="highlight">
+                            <h5><i class="fas fa-users"></i> Group Size</h5>
+                            <p>2-8 people</p>
+                        </div>
+                        <div class="highlight">
+                            <h5><i class="fas fa-language"></i> Languages</h5>
+                            <p>English, French, Arabic</p>
+                        </div>
+                        <div class="highlight">
+                            <h5><i class="fas fa-euro-sign"></i> Price</h5>
+                            <p>From €55 per person</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-form">
+                    <h3>Book Your Fishing Experience</h3>
+                    <form id="fishingForm">
+                        <div class="form-group">
+                            <label for="fishingFullName">Full Name: <span class="required">*</span></label>
+                            <input type="text" id="fishingFullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fishingEmail">Email: <span class="required">*</span></label>
+                            <input type="email" id="fishingEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fishingPhoneNumber">Phone Number: <span class="required">*</span></label>
+                            <div class="phone-input-container">
+                                <select id="fishingCountryCode" class="country-code-select" required>
+                                    <option value="+49">🇩🇪 +49 (Germany)</option>
+                                    <option value="+212">🇲🇦 +212 (Morocco)</option>
+                                    <option value="+33">🇫🇷 +33 (France)</option>
+                                    <option value="+34">🇪🇸 +34 (Spain)</option>
+                                    <option value="+39">🇮🇹 +39 (Italy)</option>
+                                    <option value="+44">🇬🇧 +44 (UK)</option>
+                                    <option value="+1">🇺🇸 +1 (USA)</option>
+                                </select>
+                                <input type="tel" id="fishingPhoneNumber" class="phone-number-input" placeholder="Phone number" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fishingExperience">Fishing Interest: <span class="required">*</span></label>
+                            <select id="fishingExperience" required>
+                                <option value="">Select your interest level</option>
+                                <option value="observer">Observer (Watch and learn)</option>
+                                <option value="participant">Participant (Hands-on experience)</option>
+                                <option value="enthusiast">Enthusiast (Full involvement)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="fishingDate">Preferred Date: <span class="required">*</span></label>
+                            <input type="date" id="fishingDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fishingTime">Preferred Time: <span class="required">*</span></label>
+                            <select id="fishingTime" required>
+                                <option value="">Select time</option>
+                                <option value="dawn">Dawn (Sunrise - Best fishing)</option>
+                                <option value="morning">Morning (8 AM - 12 PM)</option>
+                                <option value="afternoon">Afternoon (2 PM - 6 PM)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Number of Participants: <span class="required">*</span></label>
+                            <div class="passenger-inputs">
+                                <div class="passenger-type">
+                                    <label for="fishingAdults">Adults (12+ years): <span class="required">*</span></label>
+                                    <input type="number" id="fishingAdults" min="1" max="8" value="1" required>
+                                </div>
+                                <div class="passenger-type">
+                                    <label for="fishingTeens">Teens (8-17 years): <span class="required">*</span></label>
+                                    <input type="number" id="fishingTeens" min="0" max="8" value="0" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fishingDietaryRestrictions">Dietary Restrictions:</label>
+                            <textarea id="fishingDietaryRestrictions" rows="2" placeholder="Any allergies or dietary preferences?"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="fishingSpecialRequests">Special Requests:</label>
+                            <textarea id="fishingSpecialRequests" rows="3" placeholder="Any special requirements or interests?"></textarea>
+                        </div>
+                        <button type="submit" class="submit-button" id="book-now">Book Fishing Experience</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="booking-section">
+            <h3 style="text-align: center; margin-bottom: 2rem;">Experience Authentic Moroccan Fishing Culture</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-anchor" style="font-size: 3rem; color: #3498db; margin-bottom: 1rem;"></i>
+                    <h4>Traditional Fishing Methods</h4>
+                    <p>Learn ancient fishing techniques passed down through generations, from hand-casting nets to traditional boat navigation methods used by Essaouira's fishermen.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-fish" style="font-size: 3rem; color: #27ae60; margin-bottom: 1rem;"></i>
+                    <h4>Fresh from the Atlantic</h4>
+                    <p>Experience the unparalleled freshness of seafood caught moments before your eyes, prepared using traditional Moroccan cooking methods that highlight natural flavors.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-users" style="font-size: 3rem; color: #e74c3c; margin-bottom: 1rem;"></i>
+                    <h4>Local Family Connections</h4>
+                    <p>Build relationships with fishing families who have worked these waters for generations, gaining insight into Morocco's maritime heritage and sustainable practices.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-utensils" style="font-size: 3rem; color: #9b59b6; margin-bottom: 1rem;"></i>
+                    <h4>Culinary Traditions</h4>
+                    <p>Master chefs prepare your catch using age-old recipes, combining fresh Atlantic seafood with aromatic Moroccan spices and traditional cooking techniques.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-sun" style="font-size: 3rem; color: #f39c12; margin-bottom: 1rem;"></i>
+                    <h4>Sunset Beach Dining</h4>
+                    <p>As the sun sets over the Atlantic, enjoy your meal on pristine beaches with traditional Moroccan music and the sound of waves as your backdrop.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-leaf" style="font-size: 3rem; color: #e67e22; margin-bottom: 1rem;"></i>
+                    <h4>Sustainable Practices</h4>
+                    <p>Learn about Morocco's commitment to sustainable fishing and how local communities work to preserve marine ecosystems for future generations.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="booking-section" style="background: linear-gradient(rgba(248, 249, 250, 0.85), rgba(248, 249, 250, 0.85)), url('images/Essaouira-Harbor.jpg'); background-size: cover; background-position: center;">
+            <div style="background: rgba(255, 255, 255, 0.95); padding: 3rem; border-radius: 15px; max-width: 1000px; margin: 0 auto;">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #2c3e50;">Your Complete Fishing Experience</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h4 style="color: #3498db; margin-bottom: 1rem;"><i class="fas fa-clock"></i> Morning Fishing (Dawn)</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">• Meet fishermen at harbor</li>
+                            <li style="margin-bottom: 0.5rem;">• Traditional boat departure</li>
+                            <li style="margin-bottom: 0.5rem;">• Learn casting techniques</li>
+                            <li style="margin-bottom: 0.5rem;">• Experience local fishing culture</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #27ae60; margin-bottom: 1rem;"><i class="fas fa-utensils"></i> Beachside Preparation</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">• Fresh fish cleaning demonstration</li>
+                            <li style="margin-bottom: 0.5rem;">• Traditional Moroccan cooking</li>
+                            <li style="margin-bottom: 0.5rem;">• Spice and herb explanations</li>
+                            <li style="margin-bottom: 0.5rem;">• Culinary technique lessons</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #e74c3c; margin-bottom: 1rem;"><i class="fas fa-concierge-bell"></i> Dining Experience</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">• Multi-course seafood feast</li>
+                            <li style="margin-bottom: 0.5rem;">• Traditional Moroccan dishes</li>
+                            <li style="margin-bottom: 0.5rem;">• Fresh bread and accompaniments</li>
+                            <li style="margin-bottom: 0.5rem;">• Mint tea and local beverages</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #9b59b6; margin-bottom: 1rem;"><i class="fas fa-camera"></i> Cultural Immersion</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">• Fishermen's stories and traditions</li>
+                            <li style="margin-bottom: 0.5rem;">• Local community insights</li>
+                            <li style="margin-bottom: 0.5rem;">• Photography opportunities</li>
+                            <li style="margin-bottom: 0.5rem;">• Cultural exchange experience</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><strong>Phone:</strong> +212 628 438 838</p>
+                <p><strong>Email:</strong> moorishutility@gmail.com</p>
+                <p><strong>Address:</strong> 06 Rue Takadoum Lot 5, Essaouira, Morocco</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/profile.php?id=61581484462605" class="social-link facebook" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/moorish.travels/" class="social-link instagram" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://tiktok.com/@moorishtravels" class="social-link tiktok" target="_blank" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/212628438838" class="social-link whatsapp" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Essaouira Kaouki Surf. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experience the ultimate Kaouki Beach Surf Experience - learn to surf Morocco's most beautiful waves with professional instructors in a stunning coastal paradise.">
+    <meta name="keywords" content="Kaouki surf, Morocco surfing, surf lessons, beach experience, coastal adventure, Essaouira surfing, wave riding">
+    <meta name="author" content="Essaouira Kaouki Surf">
+    <meta name="robots" content="index, follow">
+    <title>Kaouki Beach Surf Experience - Professional Surf Lessons</title>
+    <link rel="icon" type="image/jpg" href="images/Essaouira-Kaouki-Surf-Favocn.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKNZVSBHJ2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MKNZVSBHJ2');
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="images/Essaouira-Kaouki-Surf-Fishing-Logo.jpg" alt="Essaouira Kaouki Surf Logo" class="logo">
+                <h1>Essaouira Kaouki Surf</h1>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                <span>☰</span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#transfers">Transfers</a></li>
+                <li><a href="index.html#adventure">Adventure</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="background: linear-gradient(rgba(52, 152, 219, 0.7), rgba(44, 62, 80, 0.7)), url('images/Essaouira-Iftane-Beach.jpg'); background-size: cover; background-position: center;">
+            <div class="hero-content">
+                <h2>Kaouki Beach Surf Experience</h2>
+                <p>Ride the perfect waves of Morocco's most beautiful coastline with expert surf instructors</p>
+                <a href="#book-now" class="cta-button">Book Surf Lesson</a>
+            </div>
+        </section>
+
+        <section class="booking-section">
+            <div class="booking-container">
+                <div class="booking-info">
+                    <h3>World-Class Surfing in Paradise</h3>
+                    <p>Kaouki Beach is renowned as one of Morocco's premier surfing destinations, offering consistent waves, pristine beaches, and breathtaking coastal scenery. Our professional surf instructors provide personalized lessons for all skill levels, from complete beginners to advanced riders.</p>
+
+                    <h4>Why Kaouki Beach is Perfect for Surfing:</h4>
+                    <ul>
+                        <li><i class="fas fa-water"></i> <strong>Consistent Waves:</strong> Reliable surf conditions year-round</li>
+                        <li><i class="fas fa-sun"></i> <strong>Beautiful Beaches:</strong> Golden sands and crystal-clear waters</li>
+                        <li><i class="fas fa-users"></i> <strong>Expert Instructors:</strong> ISA certified surf professionals</li>
+                        <li><i class="fas fa-shield-alt"></i> <strong>Safe Environment:</strong> Calm waters perfect for learning</li>
+                        <li><i class="fas fa-camera"></i> <strong>Stunning Views:</strong> Surf with the Atlas Mountains as backdrop</li>
+                    </ul>
+
+                    <div class="adventure-highlights">
+                        <div class="highlight">
+                            <h5><i class="fas fa-clock"></i> Duration</h5>
+                            <p>2-4 hours</p>
+                        </div>
+                        <div class="highlight">
+                            <h5><i class="fas fa-users"></i> Group Size</h5>
+                            <p>1-8 people</p>
+                        </div>
+                        <div class="highlight">
+                            <h5><i class="fas fa-language"></i> Languages</h5>
+                            <p>English, French, Arabic</p>
+                        </div>
+                        <div class="highlight">
+                            <h5><i class="fas fa-euro-sign"></i> Price</h5>
+                            <p>From €35 per person</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-form">
+                    <h3>Book Your Surf Experience</h3>
+                    <form id="surfForm">
+                        <div class="form-group">
+                            <label for="surfFullName">Full Name: <span class="required">*</span></label>
+                            <input type="text" id="surfFullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="surfEmail">Email: <span class="required">*</span></label>
+                            <input type="email" id="surfEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="surfPhoneNumber">Phone Number: <span class="required">*</span></label>
+                            <div class="phone-input-container">
+                                <select id="surfCountryCode" class="country-code-select" required>
+                                    <option value="+49">🇩🇪 +49 (Germany)</option>
+                                    <option value="+212">🇲🇦 +212 (Morocco)</option>
+                                    <option value="+33">🇫🇷 +33 (France)</option>
+                                    <option value="+34">🇪🇸 +34 (Spain)</option>
+                                    <option value="+39">🇮🇹 +39 (Italy)</option>
+                                    <option value="+44">🇬🇧 +44 (UK)</option>
+                                    <option value="+1">🇺🇸 +1 (USA)</option>
+                                </select>
+                                <input type="tel" id="surfPhoneNumber" class="phone-number-input" placeholder="Phone number" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="surfSkillLevel">Surfing Experience: <span class="required">*</span></label>
+                            <select id="surfSkillLevel" required>
+                                <option value="">Select your level</option>
+                                <option value="beginner">Beginner (First time)</option>
+                                <option value="intermediate">Intermediate (Some experience)</option>
+                                <option value="advanced">Advanced (Regular surfer)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="surfDate">Preferred Date: <span class="required">*</span></label>
+                            <input type="date" id="surfDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="surfDuration">Session Duration: <span class="required">*</span></label>
+                            <select id="surfDuration" required>
+                                <option value="">Select duration</option>
+                                <option value="2-hours">2 Hours</option>
+                                <option value="3-hours">3 Hours</option>
+                                <option value="4-hours">4 Hours (Full Day)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Number of Participants: <span class="required">*</span></label>
+                            <div class="passenger-inputs">
+                                <div class="passenger-type">
+                                    <label for="surfAdults">Adults (12+ years): <span class="required">*</span></label>
+                                    <input type="number" id="surfAdults" min="1" max="8" value="1" required>
+                                </div>
+                                <div class="passenger-type">
+                                    <label for="surfTeens">Teens (8-17 years): <span class="required">*</span></label>
+                                    <input type="number" id="surfTeens" min="0" max="8" value="0" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="surfEquipment">Equipment Rental:</label>
+                            <select id="surfEquipment">
+                                <option value="none">No equipment needed</option>
+                                <option value="board">Surfboard only (€10)</option>
+                                <option value="wetsuit">Wetsuit only (€15)</option>
+                                <option value="full">Full set (€20)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="surfSpecialRequests">Special Requests:</label>
+                            <textarea id="surfSpecialRequests" rows="3" placeholder="Any medical conditions, special needs, or preferences?"></textarea>
+                        </div>
+                        <button type="submit" class="submit-button" id="book-now">Book Surf Experience</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="booking-section">
+            <h3 style="text-align: center; margin-bottom: 2rem;">What Makes Kaouki Surfing Special</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-wave-square" style="font-size: 3rem; color: #3498db; margin-bottom: 1rem;"></i>
+                    <h4>Perfect Wave Conditions</h4>
+                    <p>Kaouki Beach offers consistent, gentle waves that are ideal for learning, with professional instructors who know exactly when and where to surf.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-user-graduate" style="font-size: 3rem; color: #27ae60; margin-bottom: 1rem;"></i>
+                    <h4>Certified Instructors</h4>
+                    <p>Our ISA certified instructors have years of experience teaching people from all over the world, speaking multiple languages and adapting to all skill levels.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-sun" style="font-size: 3rem; color: #f39c12; margin-bottom: 1rem;"></i>
+                    <h4>Small Group Sessions</h4>
+                    <p>Maximum 8 people per instructor ensures personalized attention, safety, and the best learning experience possible.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-camera" style="font-size: 3rem; color: #9b59b6; margin-bottom: 1rem;"></i>
+                    <h4>Photo & Video Service</h4>
+                    <p>Capture your surfing moments with professional photos and videos of your session, available for download or purchase.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-heart" style="font-size: 3rem; color: #e74c3c; margin-bottom: 1rem;"></i>
+                    <h4>Safe & Fun Environment</h4>
+                    <p>Modern safety equipment, first aid trained staff, and a relaxed atmosphere make surfing accessible and enjoyable for everyone.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-utensils" style="font-size: 3rem; color: #e67e22; margin-bottom: 1rem;"></i>
+                    <h4>Beachside Refreshments</h4>
+                    <p>Enjoy fresh juices, traditional Moroccan snacks, and cold drinks while relaxing between surf sessions.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><strong>Phone:</strong> +212 628 438 838</p>
+                <p><strong>Email:</strong> moorishutility@gmail.com</p>
+                <p><strong>Address:</strong> 06 Rue Takadoum Lot 5, Essaouira, Morocco</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/profile.php?id=61581484462605" class="social-link facebook" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/moorish.travels/" class="social-link instagram" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://tiktok.com/@moorishtravels" class="social-link tiktok" target="_blank" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/212628438838" class="social-link whatsapp" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Essaouira Kaouki Surf. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Morocco's stunning coastal villages - discover hidden gems, traditional Berber communities, and breathtaking Atlantic coastline scenery.">
+    <meta name="keywords" content="Morocco coastal villages, Berber communities, Atlantic coast, village tours, cultural exploration, Essaouira villages, traditional Morocco">
+    <meta name="author" content="Essaouira Kaouki Surf">
+    <meta name="robots" content="index, follow">
+    <title>Coastal Villages Discovery Tour - Explore Morocco's Hidden Gems</title>
+    <link rel="icon" type="image/jpg" href="images/Essaouira-Kaouki-Surf-Favocn.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKNZVSBHJ2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MKNZVSBHJ2');
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="images/Essaouira-Kaouki-Surf-Fishing-Logo.jpg" alt="Essaouira Kaouki Surf Logo" class="logo">
+                <h1>Essaouira Kaouki Surf</h1>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                <span>☰</span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#transfers">Transfers</a></li>
+                <li><a href="index.html#adventure">Adventure</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="background: linear-gradient(rgba(52, 152, 219, 0.7), rgba(44, 62, 80, 0.7)), url('images/Essaouira-Iftane-Beach.jpg'); background-size: cover; background-position: center;">
+            <div class="hero-content">
+                <h2>Coastal Villages Discovery Tour</h2>
+                <p>Explore Morocco's hidden coastal treasures and authentic Berber communities along the stunning Atlantic coastline</p>
+                <a href="#book-now" class="cta-button">Book Villages Tour</a>
+            </div>
+        </section>
+
+        <section class="booking-section">
+            <div class="booking-container">
+                <div class="booking-info">
+                    <h3>Beyond the Beaches: Authentic Morocco</h3>
+                    <p>Venture beyond Essaouira's medina to discover the soul of Morocco's Atlantic coast. Our coastal villages tour takes you to traditional Berber communities, pristine fishing villages, and breathtaking coastal landscapes that few tourists ever see. Experience genuine Moroccan hospitality and learn about centuries-old traditions that continue to thrive along this magnificent coastline.</p>
+
+                    <h4>What You'll Discover:</h4>
+                    <ul>
+                        <li><i class="fas fa-home"></i> <strong>Traditional Berber Villages:</strong> Centuries-old stone architecture and local customs</li>
+                        <li><i class="fas fa-users"></i> <strong>Community Connections:</strong> Meet local families and learn traditional crafts</li>
+                        <li><i class="fas fa-water"></i> <strong>Hidden Coves:</strong> Secluded beaches and natural rock formations</li>
+                        <li><i class="fas fa-utensils"></i> <strong>Local Cuisine:</strong> Authentic Berber cooking and fresh coastal ingredients</li>
+                        <li><i class="fas fa-camera"></i> <strong>Stunning Landscapes:</strong> Dramatic cliffs, pristine beaches, and coastal scenery</li>
+                        <li><i class="fas fa-leaf"></i> <strong>Sustainable Tourism:</strong> Supporting local communities and preserving traditions</li>
+                    </ul>
+
+                    <div class="adventure-highlights">
+                        <div class="highlight">
+                            <h5><i class="fas fa-clock"></i> Duration</h5>
+                            <p>Full Day (8 hours)</p>
+                        </div>
+                        <div class="highlight">
+                            <h5><i class="fas fa-users"></i> Group Size</h5>
+                            <p>2-10 people</p>
+                        </div>
+                        <div class="highlight">
+                            <h5><i class="fas fa-language"></i> Languages</h5>
+                            <p>English, French, Arabic</p>
+                        </div>
+                        <div class="highlight">
+                            <h5><i class="fas fa-euro-sign"></i> Price</h5>
+                            <p>From €45 per person</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-form">
+                    <h3>Book Your Coastal Villages Tour</h3>
+                    <form id="villagesForm">
+                        <div class="form-group">
+                            <label for="villagesFullName">Full Name: <span class="required">*</span></label>
+                            <input type="text" id="villagesFullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="villagesEmail">Email: <span class="required">*</span></label>
+                            <input type="email" id="villagesEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="villagesPhoneNumber">Phone Number: <span class="required">*</span></label>
+                            <div class="phone-input-container">
+                                <select id="villagesCountryCode" class="country-code-select" required>
+                                    <option value="+49">🇩🇪 +49 (Germany)</option>
+                                    <option value="+212">🇲🇦 +212 (Morocco)</option>
+                                    <option value="+33">🇫🇷 +33 (France)</option>
+                                    <option value="+34">🇪🇸 +34 (Spain)</option>
+                                    <option value="+39">🇮🇹 +39 (Italy)</option>
+                                    <option value="+44">🇬🇧 +44 (UK)</option>
+                                    <option value="+1">🇺🇸 +1 (USA)</option>
+                                </select>
+                                <input type="tel" id="villagesPhoneNumber" class="phone-number-input" placeholder="Phone number" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="villagesDate">Preferred Date: <span class="required">*</span></label>
+                            <input type="date" id="villagesDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="villagesFocus">Tour Focus: <span class="required">*</span></label>
+                            <select id="villagesFocus" required>
+                                <option value="">Select focus area</option>
+                                <option value="culture">Cultural Experience</option>
+                                <option value="nature">Natural Beauty & Photography</option>
+                                <option value="community">Community & Local Life</option>
+                                <option value="mixed">Mixed Experience</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Number of Participants: <span class="required">*</span></label>
+                            <div class="passenger-inputs">
+                                <div class="passenger-type">
+                                    <label for="villagesAdults">Adults (12+ years): <span class="required">*</span></label>
+                                    <input type="number" id="villagesAdults" min="1" max="10" value="1" required>
+                                </div>
+                                <div class="passenger-type">
+                                    <label for="villagesKids">Children (2-11 years): <span class="required">*</span></label>
+                                    <input type="number" id="villagesKids" min="0" max="10" value="0" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="villagesDietaryRestrictions">Dietary Restrictions:</label>
+                            <textarea id="villagesDietaryRestrictions" rows="2" placeholder="Any dietary requirements for local meals?"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="villagesSpecialRequests">Special Requests:</label>
+                            <textarea id="villagesSpecialRequests" rows="3" placeholder="Any specific interests or accessibility needs?"></textarea>
+                        </div>
+                        <button type="submit" class="submit-button" id="book-now">Book Villages Tour</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="booking-section">
+            <h3 style="text-align: center; margin-bottom: 2rem;">Experience Morocco's Coastal Heritage</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-home" style="font-size: 3rem; color: #3498db; margin-bottom: 1rem;"></i>
+                    <h4>Ancient Berber Architecture</h4>
+                    <p>Discover traditional stone houses, centuries-old mosques, and communal structures that showcase Morocco's rich architectural heritage along the coast.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-users" style="font-size: 3rem; color: #27ae60; margin-bottom: 1rem;"></i>
+                    <h4>Local Community Life</h4>
+                    <p>Meet Berber families, learn about traditional crafts like pottery and weaving, and participate in daily village activities and celebrations.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-water" style="font-size: 3rem; color: #e74c3c; margin-bottom: 1rem;"></i>
+                    <h4>Hidden Coastal Gems</h4>
+                    <p>Explore secluded coves, natural rock arches, and pristine beaches that are inaccessible to regular tourists and maintain their natural beauty.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-utensils" style="font-size: 3rem; color: #9b59b6; margin-bottom: 1rem;"></i>
+                    <h4>Authentic Berber Cuisine</h4>
+                    <p>Enjoy traditional Berber meals prepared with local ingredients, including couscous, tagine, and fresh seafood cooked in age-old methods.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-camera" style="font-size: 3rem; color: #f39c12; margin-bottom: 1rem;"></i>
+                    <h4>Photography Paradise</h4>
+                    <p>Capture stunning images of coastal landscapes, traditional architecture, and local life that tell the story of Morocco's Atlantic communities.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <i class="fas fa-leaf" style="font-size: 3rem; color: #e67e22; margin-bottom: 1rem;"></i>
+                    <h4>Sustainable Tourism</h4>
+                    <p>Support local communities through responsible tourism that preserves cultural traditions and protects the natural coastal environment.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="booking-section" style="background: linear-gradient(rgba(248, 249, 250, 0.85), rgba(248, 249, 250, 0.85)), url('images/Essaouira-Iftane-Beach.jpg'); background-size: cover; background-position: center;">
+            <div style="background: rgba(255, 255, 255, 0.95); padding: 3rem; border-radius: 15px; max-width: 1000px; margin: 0 auto;">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #2c3e50;">Your Coastal Villages Experience</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h4 style="color: #3498db; margin-bottom: 1rem;"><i class="fas fa-sun"></i> Morning Exploration</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">• Visit traditional Berber villages</li>
+                            <li style="margin-bottom: 0.5rem;">• Explore coastal architecture</li>
+                            <li style="margin-bottom: 0.5rem;">• Meet local artisans</li>
+                            <li style="margin-bottom: 0.5rem;">• Learn traditional crafts</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #27ae60; margin-bottom: 1rem;"><i class="fas fa-utensils"></i> Local Cuisine Experience</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">• Traditional Berber cooking</li>
+                            <li style="margin-bottom: 0.5rem;">• Fresh coastal ingredients</li>
+                            <li style="margin-bottom: 0.5rem;">• Home-cooked family meals</li>
+                            <li style="margin-bottom: 0.5rem;">• Mint tea ceremonies</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #e74c3c; margin-bottom: 1rem;"><i class="fas fa-water"></i> Coastal Nature</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">• Hidden beach coves</li>
+                            <li style="margin-bottom: 0.5rem;">• Coastal cliff walks</li>
+                            <li style="margin-bottom: 0.5rem;">• Wildlife observation</li>
+                            <li style="margin-bottom: 0.5rem;">• Natural rock formations</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #9b59b6; margin-bottom: 1rem;"><i class="fas fa-users"></i> Cultural Immersion</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">• Community interactions</li>
+                            <li style="margin-bottom: 0.5rem;">• Traditional music and dance</li>
+                            <li style="margin-bottom: 0.5rem;">• Local storytelling</li>
+                            <li style="margin-bottom: 0.5rem;">• Cultural exchange</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><strong>Phone:</strong> +212 628 438 838</p>
+                <p><strong>Email:</strong> moorishutility@gmail.com</p>
+                <p><strong>Address:</strong> 06 Rue Takadoum Lot 5, Essaouira, Morocco</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/profile.php?id=61581484462605" class="social-link facebook" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/moorish.travels/" class="social-link instagram" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://tiktok.com/@moorishtravels" class="social-link tiktok" target="_blank" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/212628438838" class="social-link whatsapp" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Essaouira Kaouki Surf. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
