@@ -18,14 +18,18 @@ window.saveToJSON = async function(formType, data) {
         try {
             const storedData = localStorage.getItem(`${formType}_backup`);
             if (storedData) {
-                existingData = JSON.parse(storedData);
+                const parsedData = JSON.parse(storedData);
+                // Handle both old dictionary format and new array format
+                if (Array.isArray(parsedData)) {
+                    existingData = parsedData;
+                } else if (parsedData && parsedData[formType] && Array.isArray(parsedData[formType])) {
+                    existingData = parsedData[formType];
+                } else {
+                    existingData = [];
+                }
             }
         } catch (e) {
-            console.log('No existing localStorage data');
-        }
-
-        // Ensure existingData is an array
-        if (!Array.isArray(existingData)) {
+            console.log('No existing localStorage data or parse error, starting fresh');
             existingData = [];
         }
 
