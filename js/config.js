@@ -1,10 +1,10 @@
 // Configuration - JSON Storage Only
 const STORAGE_METHOD = 'json'; // JSON storage for all forms
 
-// JSON Storage Functions - Save to localStorage and update JSON files
+// JSON Storage Functions - Save directly to JSON files
 window.saveToJSON = async function(formType, data) {
     try {
-        console.log(`Saving ${formType} data...`);
+        console.log(`Saving ${formType} data to JSON file...`);
 
         // Add timestamp and ID
         const entryData = {
@@ -13,40 +13,36 @@ window.saveToJSON = async function(formType, data) {
             ...data
         };
 
-        // Save to localStorage as primary storage
+        // Read existing JSON file data
         let existingData = [];
         try {
-            const storedData = localStorage.getItem(`${formType}_backup`);
-            if (storedData) {
-                const parsedData = JSON.parse(storedData);
-                // Handle both old dictionary format and new array format
-                if (Array.isArray(parsedData)) {
-                    existingData = parsedData;
-                } else if (parsedData && parsedData[formType] && Array.isArray(parsedData[formType])) {
-                    existingData = parsedData[formType];
-                } else {
-                    existingData = [];
+            const response = await fetch(`data/${formType}.json`);
+            if (response.ok) {
+                const jsonData = await response.json();
+                // Extract array from dictionary format
+                if (jsonData && jsonData[formType] && Array.isArray(jsonData[formType])) {
+                    existingData = jsonData[formType];
                 }
             }
         } catch (e) {
-            console.log('No existing localStorage data or parse error, starting fresh');
-            existingData = [];
+            console.log('No existing JSON file or read error, starting fresh');
         }
 
+        // Add new entry
         existingData.push(entryData);
-        localStorage.setItem(`${formType}_backup`, JSON.stringify(existingData));
 
-        // Try to update the corresponding JSON file in the data folder
+        // Create updated JSON data as dictionary
+        const updatedJsonData = { [formType]: existingData };
+
+        // Save to JSON file using File System Access API
         try {
-            // Check if File System Access API is supported
             if ('showSaveFilePicker' in window) {
-                console.log(`Attempting to update ${formType}.json file...`);
+                console.log(`Saving to ${formType}.json file...`);
 
-                // Create properly formatted JSON data as dictionary
-                const jsonData = JSON.stringify({ [formType]: existingData }, null, 2);
-                const blob = new Blob([jsonData], { type: 'application/json' });
+                const jsonString = JSON.stringify(updatedJsonData, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
 
-                // Prompt user to save/update the JSON file
+                // Prompt user to save the JSON file
                 const handle = await window.showSaveFilePicker({
                     suggestedName: `${formType}.json`,
                     types: [{
@@ -59,18 +55,16 @@ window.saveToJSON = async function(formType, data) {
                 await writable.write(blob);
                 await writable.close();
 
-                console.log(`✅ ${formType} data saved to localStorage and JSON file updated:`, entryData);
-                return { success: true, data: entryData, fileUpdated: true };
+                console.log(`✅ ${formType} data saved to JSON file:`, entryData);
+                return { success: true, data: entryData, fileSaved: true };
             } else {
-                console.log('File System Access API not supported, data saved to localStorage only');
+                console.log('File System Access API not supported');
+                return { success: false, error: 'File System Access API not supported' };
             }
         } catch (fileError) {
-            console.log('File save cancelled or not supported, data saved to localStorage only');
+            console.log('File save cancelled or failed');
+            return { success: false, error: 'File save cancelled or failed' };
         }
-
-        // Always return success since localStorage worked
-        console.log(`✅ ${formType} data saved to localStorage:`, entryData);
-        return { success: true, data: entryData, localStorageOnly: true };
 
     } catch (error) {
         console.error('❌ Error saving data:', error);
