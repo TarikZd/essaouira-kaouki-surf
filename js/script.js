@@ -1,5 +1,43 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Security features
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+    });
+
+    // Disable F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+C
+    document.addEventListener('keydown', function(e) {
+        // Disable F12
+        if (e.keyCode === 123) {
+            e.preventDefault();
+            return false;
+        }
+        // Disable Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+U
+        if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 67)) {
+            e.preventDefault();
+            return false;
+        }
+        // Disable Ctrl+U (view source)
+        if (e.ctrlKey && e.keyCode === 85) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    // Disable text selection
+    document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+        return false;
+    });
+
+    // Disable drag and drop
+    document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        return false;
+    });
+
     // Mobile menu toggle functionality
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
