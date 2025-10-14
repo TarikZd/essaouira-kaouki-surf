@@ -93,6 +93,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Test Supabase connection on page load
+    window.addEventListener('load', async function() {
+        console.log('Page loaded, testing Supabase connection...');
+        const testResult = await window.testSupabaseConnection();
+        if (testResult.success) {
+            console.log('✅ Supabase connection successful');
+        } else {
+            console.error('❌ Supabase connection failed:', testResult.error);
+            console.log('This might be because:');
+            console.log('1. Tables don\'t exist in Supabase');
+            console.log('2. RLS policies are blocking access');
+            console.log('3. Network/CORS issues');
+        }
+    });
+
     // Transfer form handling
     const transferForm = document.getElementById('transferForm');
     if (transferForm) {
@@ -129,27 +144,33 @@ document.addEventListener('DOMContentLoaded', function() {
                         .insert([transferData]);
 
                     if (error) {
-                        console.error('Error saving transfer:', error);
-                        showMessage('Error saving booking. Please try again.', 'error');
+                        console.error('❌ Error saving transfer:', error);
+                        console.error('Error details:', {
+                            message: error.message,
+                            details: error.details,
+                            hint: error.hint,
+                            code: error.code
+                        });
+                        showMessage(`Error saving booking: ${error.message}. Please try again.`, 'error');
                         return;
                     }
 
-                    console.log('Transfer saved successfully:', data); // Debug log
+                    console.log('✅ Transfer saved successfully:', data); // Debug log
                     // Show success message
                     showMessage('Transfer booked successfully! We\'ll contact you soon to confirm details.', 'success');
 
                     // Reset form
                     this.reset();
                 } catch (error) {
-                    console.error('Error:', error);
+                    console.error('❌ Network or unexpected error:', error);
                     showMessage('Error saving booking. Please try again.', 'error');
                 }
             } else {
-                console.log('Transfer form validation failed'); // Debug log
+                console.log('❌ Transfer form validation failed'); // Debug log
             }
         });
     } else {
-        console.log('Transfer form not found'); // Debug log
+        console.log('❌ Transfer form not found'); // Debug log
     }
 
     // Adventure form handling
