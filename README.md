@@ -15,11 +15,27 @@ A modern, responsive website for booking surf lessons, adventure tours, and airp
 
 ## 🚀 Quick Start
 
-1. **Open any HTML file** in your browser
+### **Option 1: Run with Server (Recommended)**
+```bash
+# Install dependencies
+npm install
+
+# Start the server
+npm start
+# Server will run on http://localhost:3000
+```
+
+### **Option 2: Open Static Files**
+1. **Open any HTML file** directly in your browser
 2. **Fill out any form** with test data
 3. **Submit** and see success confirmation
 4. **Check browser console** for detailed logs
 5. **View saved data** in localStorage (F12 → Application → Local Storage)
+
+### **Testing the Server:**
+- **Server URL:** `http://localhost:3000`
+- **API Health Check:** `http://localhost:3000/api/health`
+- **View Form Data:** `http://localhost:3000/api/get-form-data/transfers`
 
 ## 📋 Forms Available
 
