@@ -96,8 +96,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Transfer form handling
     const transferForm = document.getElementById('transferForm');
     if (transferForm) {
+        console.log('Transfer form found and event listener attached'); // Debug log
         transferForm.addEventListener('submit', async function(e) {
             e.preventDefault();
+            console.log('Transfer form submitted'); // Debug log
 
             // Get form data using form elements directly
             const transferData = {
@@ -115,8 +117,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 created_at: new Date().toISOString()
             };
 
+            console.log('Transfer form data collected:', transferData); // Debug log
+
             // Validate form data
             if (validateTransferForm(transferData)) {
+                console.log('Transfer form validation passed, attempting to save to Supabase'); // Debug log
                 try {
                     // Save to Supabase
                     const { data, error } = await window.supabaseClient
@@ -129,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         return;
                     }
 
+                    console.log('Transfer saved successfully:', data); // Debug log
                     // Show success message
                     showMessage('Transfer booked successfully! We\'ll contact you soon to confirm details.', 'success');
 
@@ -138,8 +144,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.error('Error:', error);
                     showMessage('Error saving booking. Please try again.', 'error');
                 }
+            } else {
+                console.log('Transfer form validation failed'); // Debug log
             }
         });
+    } else {
+        console.log('Transfer form not found'); // Debug log
     }
 
     // Adventure form handling
@@ -235,7 +245,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form validation functions
     function validateTransferForm(data) {
+        console.log('Validating transfer form data:', data); // Debug log
+
         if (!data.fullName || !data.phoneNumber || !data.type || !data.pickupLocation || !data.dropoffLocation || !data.date || !data.time || !data.adults) {
+            console.log('Missing required fields:', {
+                fullName: !!data.fullName,
+                phoneNumber: !!data.phoneNumber,
+                type: !!data.type,
+                pickupLocation: !!data.pickupLocation,
+                dropoffLocation: !!data.dropoffLocation,
+                date: !!data.date,
+                time: !!data.time,
+                adults: !!data.adults
+            });
             showMessage('Please fill in all required fields for the transfer booking.', 'error');
             return false;
         }
