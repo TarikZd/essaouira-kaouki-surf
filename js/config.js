@@ -1,10 +1,10 @@
 // Configuration - JSON Storage Only
 const STORAGE_METHOD = 'json'; // JSON storage for all forms
 
-// JSON Storage Functions - Save directly to JSON files using File System Access API
+// JSON Storage Functions - Save to localStorage and update JSON files
 window.saveToJSON = async function(formType, data) {
     try {
-        console.log(`Saving ${formType} data to JSON file...`);
+        console.log(`Saving ${formType} data...`);
 
         // Add timestamp and ID
         const entryData = {
@@ -27,17 +27,17 @@ window.saveToJSON = async function(formType, data) {
         existingData.push(entryData);
         localStorage.setItem(`${formType}_backup`, JSON.stringify(existingData));
 
-        // Try to save to JSON file using File System Access API (if supported)
+        // Try to update the corresponding JSON file in the data folder
         try {
             // Check if File System Access API is supported
             if ('showSaveFilePicker' in window) {
-                console.log('File System Access API supported, attempting to save to JSON file...');
+                console.log(`Attempting to update ${formType}.json file...`);
 
-                // Create a blob with the JSON data
+                // Create properly formatted JSON data
                 const jsonData = JSON.stringify(existingData, null, 2);
                 const blob = new Blob([jsonData], { type: 'application/json' });
 
-                // Try to save the file (this will prompt user for permission)
+                // Prompt user to save/update the JSON file
                 const handle = await window.showSaveFilePicker({
                     suggestedName: `${formType}.json`,
                     types: [{
@@ -50,14 +50,16 @@ window.saveToJSON = async function(formType, data) {
                 await writable.write(blob);
                 await writable.close();
 
-                console.log(`✅ ${formType} data saved to JSON file and localStorage:`, entryData);
-                return { success: true, data: entryData, fileSaved: true };
+                console.log(`✅ ${formType} data saved to localStorage and JSON file updated:`, entryData);
+                return { success: true, data: entryData, fileUpdated: true };
+            } else {
+                console.log('File System Access API not supported, data saved to localStorage only');
             }
         } catch (fileError) {
-            console.log('File System Access API not available or user cancelled, saving to localStorage only');
+            console.log('File save cancelled or not supported, data saved to localStorage only');
         }
 
-        // Fallback: localStorage only
+        // Always return success since localStorage worked
         console.log(`✅ ${formType} data saved to localStorage:`, entryData);
         return { success: true, data: entryData, localStorageOnly: true };
 
