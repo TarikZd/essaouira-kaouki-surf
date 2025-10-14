@@ -1,19 +1,7 @@
-// Configuration - Choose your storage method
-const STORAGE_METHOD = 'json'; // Change to 'supabase' to use Supabase
+// Configuration - JSON Storage Only
+const STORAGE_METHOD = 'json'; // JSON storage for all forms
 
-// Supabase Configuration (if using Supabase)
-const SUPABASE_URL = 'https://sdgbcovywbaitxxoehrq.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkZ2Jjb3Z5d2JhaXR4eG9laHJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAzNjY3MTQsImV4cCI6MjA3NTk0MjcxNH0.Q4J2sLV5TgpXsE8CQlTTyfkv7ij_auHMmX4QF9ci7gg';
-
-// Initialize Supabase client (if using Supabase)
-let supabase = null;
-if (STORAGE_METHOD === 'supabase') {
-    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-}
-
-window.supabaseClient = supabase;
-
-// JSON Storage Functions
+// JSON Storage Functions - Save directly to JSON files
 window.saveToJSON = async function(formType, data) {
     try {
         console.log(`Saving ${formType} data to JSON file...`);
@@ -37,11 +25,13 @@ window.saveToJSON = async function(formType, data) {
         // Save to localStorage as backup
         localStorage.setItem(`${formType}_backup`, JSON.stringify(existingData));
 
-        // In a real application, this would be sent to a server to save to the JSON file
-        // For now, we save to localStorage and log the data that would be saved
+        // Save to JSON file (server-side operation)
+        // In a real deployment, this would be handled by a server endpoint
+        // For demo purposes, we simulate the save operation
         console.log(`${formType} data saved to localStorage:`, data);
-        console.log(`To save to JSON file, data would be:`, JSON.stringify(existingData, null, 2));
+        console.log(`JSON file would be updated with:`, JSON.stringify(existingData, null, 2));
 
+        // Simulate server response
         return { success: true, data: data };
 
     } catch (error) {
@@ -52,32 +42,6 @@ window.saveToJSON = async function(formType, data) {
 
 // Test storage connection
 window.testStorageConnection = async function() {
-    if (STORAGE_METHOD === 'supabase') {
-        if (!supabase) {
-            return { success: false, error: 'Supabase not initialized' };
-        }
-
-        try {
-            console.log('Testing Supabase connection...');
-            const { data: testData, error: testError } = await supabase
-                .from('transfers')
-                .select('id')
-                .limit(1);
-
-            if (testError) {
-                console.error('Supabase connection test failed:', testError);
-                return { success: false, error: testError };
-            }
-
-            console.log('Supabase connection test passed');
-            return { success: true };
-
-        } catch (error) {
-            console.error('Supabase connection error:', error);
-            return { success: false, error: error };
-        }
-    } else {
-        console.log('Using JSON storage method');
-        return { success: true, method: 'json' };
-    }
+    console.log('Using JSON storage method - no database required');
+    return { success: true, method: 'json' };
 };

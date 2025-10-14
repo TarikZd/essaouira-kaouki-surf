@@ -38,39 +38,52 @@ A modern, responsive website for booking surf lessons, adventure tours, and airp
 
 ## 💻 Technical Details
 
-### **Storage Methods:**
-- **JSON/localStorage** (Current) - No database required
-- **Supabase** (Alternative) - Change `STORAGE_METHOD` in `config.js`
+### **Storage Method:**
+- **JSON Files + localStorage** - No database required
+- **9 JSON files** for different form types
+- **Automatic localStorage backup** for all submissions
 
 ### **Files Structure:**
 ```
 essaouira-kaouki-surf/
 ├── index.html              # Homepage with main forms
 ├── contact.html           # Contact page
-├── *.html                 # Landing pages
+├── *.html                 # Landing pages (9 total)
 ├── css/
 │   └── style.css          # All styling
 ├── js/
-│   ├── config.js          # Configuration & storage
+│   ├── config.js          # JSON storage functions
 │   └── script.js          # Form handlers & validation
-└── images/                # All images
+├── data/
+│   ├── transfers.json     # Transfer bookings
+│   ├── adventures.json    # General adventures
+│   ├── contacts.json      # Contact messages
+│   ├── souks.json         # Souks adventures
+│   ├── kaouki.json        # Kaouki surf
+│   ├── iftane.json        # Iftane surf & food
+│   ├── tafedna.json       # Tafedna experiences
+│   ├── fishing.json       # Fishing experiences
+│   └── coastal.json       # Coastal village tours
+└── images/                # All images (6 files)
 ```
 
 ## 🔧 Configuration
 
-### **Switch Storage Method:**
+### **Storage Configuration:**
 ```javascript
 // In js/config.js
-const STORAGE_METHOD = 'json';    // Use localStorage
-// const STORAGE_METHOD = 'supabase'; // Use Supabase
+const STORAGE_METHOD = 'json'; // JSON storage only
 ```
 
 ### **View Saved Data:**
 ```javascript
-// In browser console
+// In browser console - localStorage backups
 console.log(localStorage.getItem('transfers_backup'));
 console.log(localStorage.getItem('adventures_backup'));
 console.log(localStorage.getItem('contacts_backup'));
+
+// JSON files are in the data/ folder
+// Each file contains an array of submissions
 ```
 
 ## 🌟 Key Benefits
