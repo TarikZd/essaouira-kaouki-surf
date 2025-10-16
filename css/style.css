@@ -918,6 +918,12 @@ body {
     font-size: 0.9rem;
 }
 
+.form-group label::after {
+    content: '*';
+    color: #e74c3c;
+    margin-left: 0.2rem;
+}
+
 .form-group input,
 .form-group select,
 .form-group textarea {
