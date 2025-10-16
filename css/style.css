@@ -481,55 +481,73 @@ body {
     line-height: 1.6;
 }
 
-/* Transfer Rates */
-.transfer-rates {
+/* Transfer Pricing */
+.transfer-pricing {
     margin-bottom: 4rem;
 }
 
-.rate-category {
+.pricing-tier {
     margin-bottom: 3rem;
 }
 
-.rate-category h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+.tier-title {
+    font-size: 1.8rem;
     color: #2c3e50;
+    margin-bottom: 1.5rem;
     text-align: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border-radius: 10px;
 }
 
-.rate-grid {
+.transfer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
 }
 
-.rate-item {
+.transfer-card {
     background: white;
-    padding: 0.75rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     text-align: center;
-    border: 1px solid #e1e8ed;
-    transition: transform 0.2s ease;
+    border: 2px solid #f8f9fa;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.rate-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+.transfer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: #3498db;
 }
 
-.rate-item .destination {
-    font-weight: 600;
+.transfer-header {
+    margin-bottom: 1rem;
+}
+
+.transfer-header h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
     color: #2c3e50;
-    margin-bottom: 0.25rem;
-    font-size: 0.8rem;
-    line-height: 1.2;
+    font-weight: 600;
 }
 
-.rate-item .price {
-    font-size: 1rem;
+.transfer-price {
+    font-size: 1.8rem;
     font-weight: 700;
     color: #3498db;
+    background: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.transfer-card p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin: 0;
 }
 
 /* Experience Details */
