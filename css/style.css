@@ -158,8 +158,8 @@ body {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+    gap: 1.5rem;
 }
 
 .service-card {
@@ -208,19 +208,20 @@ body {
 }
 
 .card-content {
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 .card-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
     color: #2c3e50;
 }
 
 .card-content p {
     color: #7f8c8d;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-size: 0.9rem;
 }
 
 .features {
@@ -444,9 +445,9 @@ body {
 
 .service-features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
 }
 
 .feature {
@@ -689,9 +690,9 @@ body {
 /* Experience Grid */
 .experience-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
 }
 
 .experience-item {
@@ -729,9 +730,9 @@ body {
 /* Highlights Grid */
 .highlights-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
 }
 
 .highlight-item {
