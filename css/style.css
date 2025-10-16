@@ -995,6 +995,7 @@ body {
 .form-group {
     display: flex;
     flex-direction: column;
+    min-width: 0; /* Prevent flex item from overflowing */
 }
 
 .form-group label {
@@ -1002,10 +1003,7 @@ body {
     margin-bottom: 0.5rem;
     color: #2c3e50;
     font-size: 0.9rem;
-}
-
-.form-group label {
-    color: #2c3e50;
+    word-wrap: break-word;
 }
 
 .form-group label::after {
@@ -1022,6 +1020,8 @@ body {
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .form-group input:focus,
@@ -1035,6 +1035,8 @@ body {
 .form-group textarea {
     resize: vertical;
     min-height: 80px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Footer */
