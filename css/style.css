@@ -944,6 +944,10 @@ body {
     font-size: 0.9rem;
 }
 
+.form-group label {
+    color: #2c3e50;
+}
+
 .form-group label::after {
     content: '*';
     color: #e74c3c;
