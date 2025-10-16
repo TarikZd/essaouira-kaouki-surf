@@ -582,10 +582,12 @@ body {
 
 .table-responsive {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .pricing-table table {
     width: 100%;
+    min-width: 600px;
     border-collapse: collapse;
 }
 
@@ -594,12 +596,16 @@ body {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #eee;
+    white-space: nowrap;
 }
 
 .pricing-table th {
     background: #f8f9fa;
     font-weight: 600;
     color: #2c3e50;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .pricing-table td:last-child {
