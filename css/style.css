@@ -488,30 +488,17 @@ body {
     margin-bottom: 4rem;
 }
 
-.pricing-tier {
-    margin-bottom: 3rem;
-}
-
-.tier-title {
-    font-size: 1.8rem;
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    padding: 1rem;
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    color: white;
-    border-radius: 10px;
-}
-
-.transfer-grid {
+/* Pricing Overview Cards */
+.pricing-overview {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
 }
 
-.transfer-card {
+.overview-card {
     background: white;
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     text-align: center;
@@ -519,37 +506,110 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.transfer-card:hover {
+.overview-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     border-color: #3498db;
 }
 
-.transfer-header {
-    margin-bottom: 1rem;
+.overview-header {
+    margin-bottom: 1.5rem;
 }
 
-.transfer-header h4 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+.overview-header h3 {
+    font-size: 1.5rem;
     color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.overview-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
     font-weight: 600;
 }
 
-.transfer-price {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #3498db;
-    background: #f8f9fa;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    display: inline-block;
+.overview-features {
+    text-align: left;
 }
 
-.transfer-card p {
-    color: #7f8c8d;
-    font-size: 0.9rem;
+.feature-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.feature-item:last-child {
+    border-bottom: none;
+}
+
+.feature-label {
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.feature-price {
+    color: #3498db;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Pricing Tables */
+.pricing-tables {
+    margin-top: 3rem;
+}
+
+.pricing-table {
+    margin-bottom: 3rem;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-table h3 {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 1.5rem;
     margin: 0;
+    font-size: 1.4rem;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.pricing-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pricing-table th,
+.pricing-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.pricing-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.pricing-table td:last-child {
+    font-weight: 700;
+    color: #3498db;
+    font-size: 1.1rem;
+}
+
+.pricing-table tr:hover {
+    background: #f8f9fa;
 }
 
 /* Experience Details */
