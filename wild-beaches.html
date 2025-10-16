@@ -163,10 +163,10 @@
                 <div class="pricing-section">
                     <h2>Tour Details & Pricing</h2>
                     <div class="pricing-card">
-                        <div class="price">€45 per person</div>
+                        <div class="price">€65 per person</div>
                         <ul class="pricing-features">
                             <li><i class="fas fa-clock"></i> Duration: Full Day (8 hours)</li>
-                            <li><i class="fas fa-users"></i> Group Size: 2-10 people</li>
+                            <li><i class="fas fa-users"></i> Group Size: 2-4 people</li>
                             <li><i class="fas fa-language"></i> Languages: English, French, Spanish</li>
                             <li><i class="fas fa-utensils"></i> Includes: Transportation, traditional meals, expert guide, bottled water</li>
                         </ul>
@@ -178,21 +178,21 @@
                     <form id="wildBeachesBookingForm">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="wildBeachesFullname">Full Name *</label>
+                                <label for="wildBeachesFullname">Full Name</label>
                                 <input type="text" id="wildBeachesFullname" name="fullname" required>
                             </div>
                             <div class="form-group">
-                                <label for="wildBeachesEmail">Email *</label>
+                                <label for="wildBeachesEmail">Email</label>
                                 <input type="email" id="wildBeachesEmail" name="email" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="wildBeachesDate">Preferred Date *</label>
+                                <label for="wildBeachesDate">Preferred Date</label>
                                 <input type="date" id="wildBeachesDate" name="date" required>
                             </div>
                             <div class="form-group">
-                                <label for="wildBeachesTime">Preferred Time</label>
+                                <label for="wildBeachesTime">Pickoff Time</label>
                                 <select id="wildBeachesTime" name="time">
                                     <option value="morning">Morning (9:00-12:00)</option>
                                     <option value="afternoon">Afternoon (14:00-17:00)</option>
@@ -202,7 +202,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="wildBeachesAdults">Adults</label>
-                                <input type="number" id="wildBeachesAdults" name="adults" min="1" value="1">
+                                <input type="number" id="wildBeachesAdults" name="adults" min="1" value="0">
                             </div>
                             <div class="form-group">
                                 <label for="wildBeachesChildren">Children (under 12)</label>
@@ -211,7 +211,7 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="wildBeachesCountryCode">Country Code *</label>
+                                <label for="wildBeachesCountryCode">Country Code</label>
                                 <select id="wildBeachesCountryCode" name="countryCode" required>
                                     <option value="+49">Germany (+49)</option>
                                     <option value="+212">Morocco (+212)</option>
@@ -251,7 +251,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="wildBeachesPhone">Phone Number *</label>
+                                <label for="wildBeachesPhone">Phone Number</label>
                                 <input type="tel" id="wildBeachesPhone" name="phone" placeholder="Without country code" required>
                             </div>
                         </div>
