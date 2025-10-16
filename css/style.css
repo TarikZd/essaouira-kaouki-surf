@@ -177,7 +177,7 @@ body {
 
 .card-image {
     position: relative;
-    height: 250px;
+    height: 200px;
     overflow: hidden;
 }
 
@@ -226,16 +226,17 @@ body {
 
 .features {
     list-style: none;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .features li {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     color: #27ae60;
     font-weight: 500;
+    font-size: 0.85rem;
 }
 
 .view-more-btn {
@@ -480,51 +481,55 @@ body {
     line-height: 1.6;
 }
 
-/* Transfer Options */
-.transfer-options {
+/* Transfer Rates */
+.transfer-rates {
     margin-bottom: 4rem;
 }
 
-.options-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+.rate-category {
+    margin-bottom: 3rem;
 }
 
-.option-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    text-align: center;
-}
-
-.option-card h3 {
+.rate-category h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: #2c3e50;
+    text-align: center;
 }
 
-.option-card p {
-    color: #7f8c8d;
-    margin-bottom: 1.5rem;
+.rate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
 }
 
-.option-card .price {
-    font-size: 1.8rem;
+.rate-item {
+    background: white;
+    padding: 0.75rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    border: 1px solid #e1e8ed;
+    transition: transform 0.2s ease;
+}
+
+.rate-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.rate-item .destination {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+.rate-item .price {
+    font-size: 1rem;
     font-weight: 700;
     color: #3498db;
-    margin-bottom: 1rem;
-}
-
-.option-card ul {
-    list-style: none;
-    text-align: left;
-}
-
-.option-card li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #eee;
 }
 
 /* Experience Details */
