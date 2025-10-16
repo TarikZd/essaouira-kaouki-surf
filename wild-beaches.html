@@ -175,11 +175,95 @@
 
                 <div class="booking-section">
                     <h2>Book Your Wild Beaches Adventure</h2>
-                    <p>Ready to explore Morocco's hidden coastal treasures? Contact us via WhatsApp to arrange your adventure.</p>
-                    <a href="https://wa.me/212628438838?text=Hello! I would like to book the Wild Beaches Adventure. Please provide me with tour details and availability." class="whatsapp-btn" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        Book via WhatsApp
-                    </a>
+                    <form id="wildBeachesBookingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="wildBeachesFullname">Full Name *</label>
+                                <input type="text" id="wildBeachesFullname" name="fullname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="wildBeachesEmail">Email *</label>
+                                <input type="email" id="wildBeachesEmail" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="wildBeachesDate">Preferred Date *</label>
+                                <input type="date" id="wildBeachesDate" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="wildBeachesTime">Preferred Time</label>
+                                <select id="wildBeachesTime" name="time">
+                                    <option value="morning">Morning (9:00-12:00)</option>
+                                    <option value="afternoon">Afternoon (14:00-17:00)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="wildBeachesAdults">Adults</label>
+                                <input type="number" id="wildBeachesAdults" name="adults" min="1" value="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="wildBeachesChildren">Children (under 12)</label>
+                                <input type="number" id="wildBeachesChildren" name="children" min="0" value="0">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="wildBeachesCountryCode">Country Code *</label>
+                                <select id="wildBeachesCountryCode" name="countryCode" required>
+                                    <option value="+49">Germany (+49)</option>
+                                    <option value="+212">Morocco (+212)</option>
+                                    <option value="+33">France (+33)</option>
+                                    <option value="+1">USA (+1)</option>
+                                    <option value="+44">UK (+44)</option>
+                                    <option value="+34">Spain (+34)</option>
+                                    <option value="+39">Italy (+39)</option>
+                                    <option value="+31">Netherlands (+31)</option>
+                                    <option value="+32">Belgium (+32)</option>
+                                    <option value="+41">Switzerland (+41)</option>
+                                    <option value="+46">Sweden (+46)</option>
+                                    <option value="+47">Norway (+47)</option>
+                                    <option value="+45">Denmark (+45)</option>
+                                    <option value="+351">Portugal (+351)</option>
+                                    <option value="+213">Algeria (+213)</option>
+                                    <option value="+216">Tunisia (+216)</option>
+                                    <option value="+20">Egypt (+20)</option>
+                                    <option value="+971">UAE (+971)</option>
+                                    <option value="+966">Saudi Arabia (+966)</option>
+                                    <option value="+90">Turkey (+90)</option>
+                                    <option value="+7">Russia (+7)</option>
+                                    <option value="+86">China (+86)</option>
+                                    <option value="+81">Japan (+81)</option>
+                                    <option value="+61">Australia (+61)</option>
+                                    <option value="+55">Brazil (+55)</option>
+                                    <option value="+52">Mexico (+52)</option>
+                                    <option value="+27">South Africa (+27)</option>
+                                    <option value="+91">India (+91)</option>
+                                    <option value="+62">Indonesia (+62)</option>
+                                    <option value="+63">Philippines (+63)</option>
+                                    <option value="+66">Thailand (+66)</option>
+                                    <option value="+84">Vietnam (+84)</option>
+                                    <option value="+82">South Korea (+82)</option>
+                                    <option value="+65">Singapore (+65)</option>
+                                    <option value="+60">Malaysia (+60)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="wildBeachesPhone">Phone Number *</label>
+                                <input type="tel" id="wildBeachesPhone" name="phone" placeholder="Without country code" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="wildBeachesRequests">Special Requests</label>
+                            <textarea id="wildBeachesRequests" name="requests" rows="3" placeholder="Accessibility needs, dietary restrictions, specific interests, etc."></textarea>
+                        </div>
+                        <button type="submit" class="whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i>
+                            Book Wild Beaches Adventure
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -192,5 +276,35 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Wild Beaches booking form submission
+        document.getElementById("wildBeachesBookingForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const fullname = document.getElementById("wildBeachesFullname").value;
+            const email = document.getElementById("wildBeachesEmail").value;
+            const date = document.getElementById("wildBeachesDate").value;
+            const time = document.getElementById("wildBeachesTime").value;
+            const adults = document.getElementById("wildBeachesAdults").value;
+            const children = document.getElementById("wildBeachesChildren").value;
+            const countryCode = document.getElementById("wildBeachesCountryCode").value;
+            const phone = document.getElementById("wildBeachesPhone").value.replace(/\D/g, '');
+            const requests = document.getElementById("wildBeachesRequests").value;
+
+            const message = `New Wild Beaches Adventure Booking:\n\n
+Name: ${fullname}
+Email: ${email}
+Date: ${date}
+Time: ${time}
+Adults: ${adults}
+Children: ${children}
+Phone: ${countryCode} ${phone}
+Special Requests: ${requests || 'None'}`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/212628438838?text=${encodedMessage}`;
+            window.open(whatsappUrl, "_blank");
+        });
+    </script>
 </body>
 </html>

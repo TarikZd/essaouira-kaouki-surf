@@ -178,11 +178,100 @@
 
                 <div class="booking-section">
                     <h2>Book Your Surf Experience</h2>
-                    <p>Ready to ride the waves? Contact us via WhatsApp to check availability and book your surf lesson.</p>
-                    <a href="https://wa.me/212628438838?text=Hello! I would like to book a surf experience. Please provide me with lesson details, availability, and pricing." class="whatsapp-btn" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        Book via WhatsApp
-                    </a>
+                    <form id="surfBookingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="surfFullname">Full Name *</label>
+                                <input type="text" id="surfFullname" name="fullname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="surfEmail">Email *</label>
+                                <input type="email" id="surfEmail" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="surfDate">Preferred Date *</label>
+                                <input type="date" id="surfDate" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="surfExperience">Surf Experience Level</label>
+                                <select id="surfExperience" name="experience">
+                                    <option value="beginner">Beginner (First Time)</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="surfPackage">Package Type</label>
+                                <select id="surfPackage" name="package">
+                                    <option value="kaouki">Kaouki Beach Surf (€35)</option>
+                                    <option value="iftane">Iftane Beach Surf & Food (€65)</option>
+                                    <option value="tafedna">Tafedna Beach Surf & Food (€75)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="surfParticipants">Number of Participants</label>
+                                <input type="number" id="surfParticipants" name="participants" min="1" max="8" value="1">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="surfCountryCode">Country Code *</label>
+                                <select id="surfCountryCode" name="countryCode" required>
+                                    <option value="+49">Germany (+49)</option>
+                                    <option value="+212">Morocco (+212)</option>
+                                    <option value="+33">France (+33)</option>
+                                    <option value="+1">USA (+1)</option>
+                                    <option value="+44">UK (+44)</option>
+                                    <option value="+34">Spain (+34)</option>
+                                    <option value="+39">Italy (+39)</option>
+                                    <option value="+31">Netherlands (+31)</option>
+                                    <option value="+32">Belgium (+32)</option>
+                                    <option value="+41">Switzerland (+41)</option>
+                                    <option value="+46">Sweden (+46)</option>
+                                    <option value="+47">Norway (+47)</option>
+                                    <option value="+45">Denmark (+45)</option>
+                                    <option value="+351">Portugal (+351)</option>
+                                    <option value="+213">Algeria (+213)</option>
+                                    <option value="+216">Tunisia (+216)</option>
+                                    <option value="+20">Egypt (+20)</option>
+                                    <option value="+971">UAE (+971)</option>
+                                    <option value="+966">Saudi Arabia (+966)</option>
+                                    <option value="+90">Turkey (+90)</option>
+                                    <option value="+7">Russia (+7)</option>
+                                    <option value="+86">China (+86)</option>
+                                    <option value="+81">Japan (+81)</option>
+                                    <option value="+61">Australia (+61)</option>
+                                    <option value="+55">Brazil (+55)</option>
+                                    <option value="+52">Mexico (+52)</option>
+                                    <option value="+27">South Africa (+27)</option>
+                                    <option value="+91">India (+91)</option>
+                                    <option value="+62">Indonesia (+62)</option>
+                                    <option value="+63">Philippines (+63)</option>
+                                    <option value="+66">Thailand (+66)</option>
+                                    <option value="+84">Vietnam (+84)</option>
+                                    <option value="+82">South Korea (+82)</option>
+                                    <option value="+65">Singapore (+65)</option>
+                                    <option value="+60">Malaysia (+60)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="surfPhone">Phone Number *</label>
+                                <input type="tel" id="surfPhone" name="phone" placeholder="Without country code" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="surfRequests">Special Requests</label>
+                            <textarea id="surfRequests" name="requests" rows="3" placeholder="Medical conditions, equipment preferences, dietary restrictions, etc."></textarea>
+                        </div>
+                        <button type="submit" class="whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i>
+                            Book Surf Experience
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -195,5 +284,35 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Surf booking form submission
+        document.getElementById("surfBookingForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const fullname = document.getElementById("surfFullname").value;
+            const email = document.getElementById("surfEmail").value;
+            const date = document.getElementById("surfDate").value;
+            const experience = document.getElementById("surfExperience").value;
+            const package = document.getElementById("surfPackage").value;
+            const participants = document.getElementById("surfParticipants").value;
+            const countryCode = document.getElementById("surfCountryCode").value;
+            const phone = document.getElementById("surfPhone").value.replace(/\D/g, '');
+            const requests = document.getElementById("surfRequests").value;
+
+            const message = `New Surf Experience Booking:\n\n
+Name: ${fullname}
+Email: ${email}
+Date: ${date}
+Experience Level: ${experience}
+Package: ${package}
+Participants: ${participants}
+Phone: ${countryCode} ${phone}
+Special Requests: ${requests || 'None'}`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/212628438838?text=${encodedMessage}`;
+            window.open(whatsappUrl, "_blank");
+        });
+    </script>
 </body>
 </html>

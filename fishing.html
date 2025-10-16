@@ -132,11 +132,97 @@
 
                 <div class="booking-section">
                     <h2>Book Your Fishing Experience</h2>
-                    <p>Ready to experience traditional Moroccan fishing? Contact us via WhatsApp to reserve your spot.</p>
-                    <a href="https://wa.me/212628438838?text=Hello! I would like to book the Fishing & Food Experience. Please provide me with availability and pricing details." class="whatsapp-btn" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        Book via WhatsApp
-                    </a>
+                    <form id="fishingBookingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fishingFullname">Full Name *</label>
+                                <input type="text" id="fishingFullname" name="fullname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fishingEmail">Email *</label>
+                                <input type="email" id="fishingEmail" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fishingDate">Preferred Date *</label>
+                                <input type="date" id="fishingDate" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fishingTime">Preferred Time</label>
+                                <select id="fishingTime" name="time">
+                                    <option value="dawn">Dawn (Sunrise)</option>
+                                    <option value="morning">Morning</option>
+                                    <option value="afternoon">Afternoon</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fishingAdults">Adults</label>
+                                <input type="number" id="fishingAdults" name="adults" min="1" value="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="fishingTeens">Teens (12-17)</label>
+                                <input type="number" id="fishingTeens" name="teens" min="0" value="0">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fishingCountryCode">Country Code *</label>
+                                <select id="fishingCountryCode" name="countryCode" required>
+                                    <option value="+49">Germany (+49)</option>
+                                    <option value="+212">Morocco (+212)</option>
+                                    <option value="+33">France (+33)</option>
+                                    <option value="+1">USA (+1)</option>
+                                    <option value="+44">UK (+44)</option>
+                                    <option value="+34">Spain (+34)</option>
+                                    <option value="+39">Italy (+39)</option>
+                                    <option value="+31">Netherlands (+31)</option>
+                                    <option value="+32">Belgium (+32)</option>
+                                    <option value="+41">Switzerland (+41)</option>
+                                    <option value="+46">Sweden (+46)</option>
+                                    <option value="+47">Norway (+47)</option>
+                                    <option value="+45">Denmark (+45)</option>
+                                    <option value="+351">Portugal (+351)</option>
+                                    <option value="+351">Portugal (+351)</option>
+                                    <option value="+213">Algeria (+213)</option>
+                                    <option value="+216">Tunisia (+216)</option>
+                                    <option value="+20">Egypt (+20)</option>
+                                    <option value="+971">UAE (+971)</option>
+                                    <option value="+966">Saudi Arabia (+966)</option>
+                                    <option value="+90">Turkey (+90)</option>
+                                    <option value="+7">Russia (+7)</option>
+                                    <option value="+86">China (+86)</option>
+                                    <option value="+81">Japan (+81)</option>
+                                    <option value="+61">Australia (+61)</option>
+                                    <option value="+55">Brazil (+55)</option>
+                                    <option value="+52">Mexico (+52)</option>
+                                    <option value="+27">South Africa (+27)</option>
+                                    <option value="+91">India (+91)</option>
+                                    <option value="+62">Indonesia (+62)</option>
+                                    <option value="+63">Philippines (+63)</option>
+                                    <option value="+66">Thailand (+66)</option>
+                                    <option value="+84">Vietnam (+84)</option>
+                                    <option value="+82">South Korea (+82)</option>
+                                    <option value="+65">Singapore (+65)</option>
+                                    <option value="+60">Malaysia (+60)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="fishingPhone">Phone Number *</label>
+                                <input type="tel" id="fishingPhone" name="phone" placeholder="Without country code" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fishingRequests">Special Requests</label>
+                            <textarea id="fishingRequests" name="requests" rows="3" placeholder="Dietary restrictions, special needs, etc."></textarea>
+                        </div>
+                        <button type="submit" class="whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i>
+                            Book Fishing Experience
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -149,5 +235,35 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Fishing booking form submission
+        document.getElementById("fishingBookingForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const fullname = document.getElementById("fishingFullname").value;
+            const email = document.getElementById("fishingEmail").value;
+            const date = document.getElementById("fishingDate").value;
+            const time = document.getElementById("fishingTime").value;
+            const adults = document.getElementById("fishingAdults").value;
+            const teens = document.getElementById("fishingTeens").value;
+            const countryCode = document.getElementById("fishingCountryCode").value;
+            const phone = document.getElementById("fishingPhone").value.replace(/\D/g, '');
+            const requests = document.getElementById("fishingRequests").value;
+
+            const message = `New Fishing Experience Booking:\n\n
+Name: ${fullname}
+Email: ${email}
+Date: ${date}
+Time: ${time}
+Adults: ${adults}
+Teens: ${teens}
+Phone: ${countryCode} ${phone}
+Special Requests: ${requests || 'None'}`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/212628438838?text=${encodedMessage}`;
+            window.open(whatsappUrl, "_blank");
+        });
+    </script>
 </body>
 </html>
